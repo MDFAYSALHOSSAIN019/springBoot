@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class StudentAddService {
+public class StudentAddService  {
 
 @Autowired
 IStudentAddRepo studentAddRepo;
@@ -38,6 +38,8 @@ IStudentAddRepo studentAddRepo;
     }
 
 
-
-
+    public List<StudentAddModel> findByClass(String stClass) {
+      List<StudentAddModel> stList=studentAddRepo.findByStClass(stClass);
+      return stList;
+    }
 }
