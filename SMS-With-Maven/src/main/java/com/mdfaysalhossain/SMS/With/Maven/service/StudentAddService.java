@@ -39,7 +39,7 @@ IStudentAddRepo studentAddRepo;
 
 
     public List<StudentAddModel> findByClass(String stClass) {
-      List<StudentAddModel> stList=studentAddRepo.findByStClass(stClass);
-      return stList;
+        return studentAddRepo.findByStClass(stClass);
+//      return stList;
     }
 }

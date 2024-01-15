@@ -29,30 +29,26 @@
 
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Student Add Form</h5>
+                        <h5 class="card-title">Teacher Add Form</h5>
 
                         <!-- Multi Columns Form -->
                         <form class="row g-3" th:action="@{/teacher/tesave}" th:object="${teacherform}" method="post" >
 
 
-<!--                            <div class="col-md-3">-->
-<!--                                <label  class="form-label">Student Roll</label>-->
-<!--                                <select  class="form-select" th:field="*{stRoll}">-->
-<!--                                    <option value="" selected>Choose Roll</option>-->
-<!--                                    <option value="1">1</option>-->
-<!--                                    <option value="2">2</option>-->
-<!--                                    <option value="3">3</option>-->
-<!--                                    <option value="4">4</option>-->
-<!--                                    <option value="5">5</option>-->
-<!--                                    <option value="6">6</option>-->
-<!--                                    <option value="7">7</option>-->
-<!--                                    <option value="8">8</option>-->
-<!--                                </select>-->
-<!--                            </div>-->
-
                             <div class="col-md-6">
                                 <label  class="form-label">Full Name</label>
                                 <input type="text" class="form-control"  th:field="*{t_name}">
+                            </div>
+
+                            <div class="col-md-3">
+                                <label  class="form-label">Designation</label>
+                                <select  class="form-select" th:field="*{t_designation}">
+                                    <option value="" selected>Choose </option>
+                                    <option value="Head Teacher">Head Teacher</option>
+                                    <option value="Assesten Teacher">Assesten Teacher</option>
+                                    <option value="Teacher">Teacher</option>
+
+                                </select>
                             </div>
                             <div class="col-md-6">
                                 <label  class="form-label">Email</label>
@@ -87,14 +83,14 @@
 
                             <div class="col-md-6">
                                 <label  class="form-label">Joing Date</label>
-                                <input type="email" class="form-control" th:field="*{t_joiningDate}">
+                                <input type="text" class="form-control" th:field="*{t_joiningDate}">
                             </div>
                             <div class="col-md-6">
                                 <label  class="form-label">Photo Attach</label>
                                 <input type="file" class="form-control"th:field="*{t_pic}" >
                             </div>
 
-                            <div class="col-12">
+                            <div class="col-6">
                                 <label  class="form-label">CV Attach (only PDF)</label>
                                 <input type="file" class="form-control"  placeholder="" th:field="*{t_cv}">
                             </div>

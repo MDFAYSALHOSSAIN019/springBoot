@@ -40,9 +40,11 @@ public class TeacherAddModel {
 
     private  String t_role;
 
-    private long t_pic;
+    private String t_pic;
 
     private String t_cv;
+
+    private String t_designation;
 
 
 

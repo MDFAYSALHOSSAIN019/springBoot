@@ -75,7 +75,7 @@ public class StudentAddController {
     }
 
 
-    @GetMapping("/student/view/{class}")
+    @GetMapping("/student/view/{stclass}")
     public String viewStudentsByClass(@PathVariable String stclass, Model model) {
         List<StudentAddModel> students = studentAddService.findByClass(stclass);
         model.addAttribute("Allstudent", students);

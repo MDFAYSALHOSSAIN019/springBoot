@@ -15,4 +15,10 @@ public class controller {
     public String stAttendance(){
         return "stAttendance";
     }
+
+
+    @GetMapping("/student/stClassRutineAdd")
+    public String stClassRutineAdd(){
+        return "stClassRutineAdd";
+    }
 }
