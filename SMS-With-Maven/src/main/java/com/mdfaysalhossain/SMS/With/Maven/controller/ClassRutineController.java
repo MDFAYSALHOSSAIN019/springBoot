@@ -1,6 +1,8 @@
 package com.mdfaysalhossain.SMS.With.Maven.controller;
 
 import com.mdfaysalhossain.SMS.With.Maven.model.ClassRutineModel;
+import com.mdfaysalhossain.SMS.With.Maven.model.TeacherAddModel;
+import com.mdfaysalhossain.SMS.With.Maven.repository.ITeachersAddRepo;
 import com.mdfaysalhossain.SMS.With.Maven.service.ClassRutineService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,6 +13,12 @@ import java.util.List;
 
 @Controller
 public class ClassRutineController {
+    @Autowired
+    ITeachersAddRepo teachersAddRepo;
+    @Autowired
+    public ClassRutineController(ITeachersAddRepo teachersAddRepo) {
+        this.teachersAddRepo = teachersAddRepo;
+    }
 
     @Autowired
     ClassRutineService classRutineService;
@@ -20,20 +28,44 @@ public class ClassRutineController {
     }
 
 
-
-
-
     @GetMapping("/rutine/viewrutine")
     public String getallclassrut(Model m) {
         List<ClassRutineModel> rutList = classRutineService.getAllrutine();
-        m.addAttribute("Allstudent", rutList);
+
+        for (ClassRutineModel classRutine : rutList) {
+            TeacherAddModel teacherAddModel = classRutine.getTeacherAddModel();
+            if (teacherAddModel != null) {
+                System.out.println("Teacher Name: " + teacherAddModel.getT_name());
+            } else {
+                System.out.println("Teacher Add Model is null");
+            }
+        }
+
+
+
+
+
+     m.addAttribute("ClassRutineAll", rutList);
         m.addAttribute("titel", "View Class Rutine");
+
+        List<TeacherAddModel> teaList = teachersAddRepo.findAll();
+        m.addAttribute("teacher",new TeacherAddModel());
+        m.addAttribute("teaList",teaList);
+
+
         return "stClassRutineView";
     }
 
 
     @GetMapping("/rutine/rutform")
     public String saveform(Model m) {
+
+        List<TeacherAddModel> teaList = teachersAddRepo.findAll();
+
+        m.addAttribute("teacher",new TeacherAddModel());
+        m.addAttribute("teaList",teaList);
+
+
         m.addAttribute("rutform", new ClassRutineModel());
         return "stClassRutineAdd";
     }

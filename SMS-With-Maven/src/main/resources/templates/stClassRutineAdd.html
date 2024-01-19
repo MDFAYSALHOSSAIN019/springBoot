@@ -25,7 +25,7 @@
                        <!-- Browser Default Validation -->
                         <form class="row g-3" th:action="@{/rutine/rutsave}" th:object="${rutform}" method="post">
                             <div class="col-md-6">
-                                <label  class="form-label">Class</label>
+                                <label  class="form-label"><b>Class</b> </label>
                                 <select  class="form-select" th:field="*{cr_class}" >
                                     <option value="" selected>Select Class</option>
                                     <option value="6">6</option>
@@ -38,7 +38,7 @@
                             </div>
 
                             <div class="col-md-6">
-                                <label  class="form-label">Day</label>
+                                <label  class="form-label"><b>Day</b> </label>
                                 <select  class="form-select" th:field="*{cr_day}" >
                                     <option value="" selected>Select Day</option>
                                     <option value="SUNDAY">SUN_DAY</option>
@@ -49,7 +49,7 @@
                                 </select>
                             </div>
                             <div class="col-md-4">
-                                <label  class="form-label">1st Subject</label>
+                                <label  class="form-label text-success" ><b>1st Period</b> </label>
                                 <select  class="form-select" >
                                     <option value="" selected th:field="*{first_sub}">Selete Subject</option>
                                     <option value="Bangla">Bangla</option>
@@ -61,21 +61,22 @@
                                 </select>
                             </div>
                             <div class="col-md-4">
-                                <label class="form-label">Teacher</label>
+                                <label class="form-label">&nbsp;</label>
                                 <select class="form-select" th:field="*{first_tea}" >
-                                    <option selected  value="">Select Teacher</option>
+                                    <option selected  value="" th:each="r:${teaList}" th:text="${r.t_name}"
+                                            th:value="${r.tid}">Select Teacher</option>
 
                                 </select>
                             </div>
                             <div class="col-md-4">
-                                <label  class="form-label">Class Time Input</label>
-                                <input type="text" class="form-control"  th:field="*{cr_time1}">
+                                <label  class="form-label">&nbsp;</label>
+                                <input type="text" class="form-control"  th:field="*{cr_time1}" placeholder="Class Time Input">
                             </div>
 
 <!--                            ---------------------------------------->
 
                             <div class="col-md-4">
-                                <label  class="form-label">2nd Subject</label>
+                                <label  class="form-label text-success" ><b>2nd Period</b></label>
                                 <select  class="form-select" th:field="*{second_sub}">
                                     <option value="" selected>Selete Subject</option>
                                     <option value="Bangla">Bangla</option>
@@ -87,20 +88,21 @@
                                 </select>
                             </div>
                             <div class="col-md-4">
-                                <label class="form-label">Teacher</label>
+                                <label class="form-label">&nbsp;</label>
                                 <select class="form-select" th:field="*{second_tea}" >
-                                    <option selected  value="1">Select Teacher</option>
+                                    <option selected  th:each="r:${teaList}" th:text="${r.t_name}"
+                                            th:value="${r.tid}">Select Teacher</option>
 
                                 </select>
                             </div>
                             <div class="col-md-4">
-                                <label  class="form-label">Class Time Input</label>
-                                <input type="text" class="form-control" th:field="*{cr_time2}" >
+                                <label  class="form-label">&nbsp;</label>
+                                <input type="text" class="form-control" th:field="*{cr_time2}" placeholder="Class Time Input" >
                             </div>
 <!--                            ------------------------>
 
                             <div class="col-md-4">
-                                <label  class="form-label">3rd Subject</label>
+                                <label  class="form-label text-success" ><b>3rd Period</b></label>
                                 <select  class="form-select"th:field="*{third_sub}">
                                     <option value="" selected>Selete Subject</option>
                                     <option value="Bangla">Bangla</option>
@@ -112,20 +114,21 @@
                                 </select>
                             </div>
                             <div class="col-md-4">
-                                <label class="form-label">Teacher</label>
+                                <label class="form-label">&nbsp;</label>
                                 <select class="form-select" th:field="*{third_tea}">
-                                    <option selected  value="">Select Teacher</option>
+                                    <option selected   th:each="r:${teaList}" th:text="${r.t_name}"
+                                            th:value="${r.tid}">Select Teacher</option>
 
                                 </select>
                             </div>
                             <div class="col-md-4">
-                                <label  class="form-label">Class Time Input</label>
-                                <input type="text" class="form-control" th:field="*{cr_time3}" >
+                                <label  class="form-label">&nbsp;</label>
+                                <input type="text" class="form-control" th:field="*{cr_time3}" placeholder="Class Time Input" >
                             </div>
 <!--                            ------------------------------->
 
                             <div class="col-md-4">
-                                <label  class="form-label">4th Subject</label>
+                                <label  class="form-label text-success" ><b>4th Period</b></label>
                                 <select  class="form-select" th:field="*{forth_sub}" >
                                     <option value="" selected>Selete Subject</option>
                                     <option value="Bangla">Bangla</option>
@@ -137,21 +140,22 @@
                                 </select>
                             </div>
                             <div class="col-md-4">
-                                <label class="form-label">Teacher</label>
+                                <label class="form-label">&nbsp;</label>
                                 <select class="form-select" th:field="*{forth_tea}">
-                                    <option selected  value="">Select Teacher</option>
+                                    <option selected   th:each="r:${teaList}" th:text="${r.t_name}"
+                                            th:value="${r.tid}">Select Teacher</option>
 
                                 </select>
                             </div>
                             <div class="col-md-4">
-                                <label  class="form-label">Class Time Input</label>
-                                <input type="text" class="form-control" th:field="*{cr_time4}" >
+                                <label  class="form-label">&nbsp;</label>
+                                <input type="text" class="form-control" th:field="*{cr_time4}"  placeholder="Class Time Input" >
                             </div>
 
 <!--                            -------------------------------->
 
                             <div class="col-md-4">
-                                <label  class="form-label">5th Subject</label>
+                                <label  class="form-label text-success" ><b>5th Period</b></label>
                                 <select  class="form-select" th:field="*{fivth_sub}">
                                     <option value="" selected>Selete Subject</option>
                                     <option value="Bangla">Bangla</option>
@@ -163,20 +167,21 @@
                                 </select>
                             </div>
                             <div class="col-md-4">
-                                <label class="form-label">Teacher</label>
+                                <label class="form-label">&nbsp;</label>
                                 <select class="form-select" th:field="*{fivth_tea}" >
-                                    <option selected  value="">Select Teacher</option>
+                                    <option selected   th:each="r:${teaList}" th:text="${r.t_name}"
+                                            th:value="${r.tid}">Select Teacher</option>
 
                                 </select>
                             </div>
                             <div class="col-md-4">
-                                <label  class="form-label">Class Time Input</label>
-                                <input type="text" class="form-control"  th:field="*{cr_time5}">
+                                <label  class="form-label">&nbsp;</label>
+                                <input type="text" class="form-control"  th:field="*{cr_time5}" placeholder="Class Time Input">
                             </div>
 <!--                            ---------------------------->
 
                             <div class="col-md-4">
-                                <label  class="form-label">6th Subject</label>
+                                <label  class="form-label text-success" ><b>6th Period</b></label>
                                 <select  class="form-select" th:field="*{six_sub}">
                                     <option value="" selected>Selete Subject</option>
                                     <option value="Bangla">Bangla</option>
@@ -188,20 +193,21 @@
                                 </select>
                             </div>
                             <div class="col-md-4">
-                                <label class="form-label">Teacher</label>
+                                <label class="form-label">&nbsp;</label>
                                 <select class="form-select" th:field="*{six_tea}">
-                                    <option selected  value="">Select Teacher</option>
+                                    <option selected   th:each="r:${teaList}" th:text="${r.t_name}"
+                                            th:value="${r.tid}">Select Teacher</option>
 
                                 </select>
                             </div>
                             <div class="col-md-4">
-                                <label  class="form-label">Class Time Input</label>
-                                <input type="text" class="form-control" th:field="*{cr_time6}" >
+                                <label  class="form-label">&nbsp;</label>
+                                <input type="text" class="form-control" th:field="*{cr_time6}" placeholder="Class Time Input" >
                             </div>
 <!--                            ------------------------------>
 
                             <div class="col-md-4">
-                                <label  class="form-label">7th Subject</label>
+                                <label  class="form-label text-success" ><b>7th Period</b></label>
                                 <select  class="form-select" th:field="*{seven_sub}" >
                                     <option value="" selected>Selete Subject</option>
                                     <option value="Bangla">Bangla</option>
@@ -213,27 +219,28 @@
                                 </select>
                             </div>
                             <div class="col-md-4">
-                                <label class="form-label">Teacher</label>
+                                <label class="form-label">&nbsp;</label>
                                 <select class="form-select" th:field="*{seven_tea}">
-                                    <option selected  value="">Select Teacher</option>
+                                    <option selected   th:each="r:${teaList}" th:text="${r.t_name}"
+                                            th:value="${r.tid}">Select Teacher</option>
 
                                 </select>
                             </div>
                             <div class="col-md-4">
-                                <label  class="form-label">Class Time Input</label>
-                                <input type="text" class="form-control"  th:field="*{cr_time7}">
+                                <label  class="form-label">&nbsp;</label>
+                                <input type="text" class="form-control"  th:field="*{cr_time7}" placeholder="Class Time Input">
                             </div>
 
                             <div class="col-12">
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
                                     <label class="form-check-label" for="invalidCheck2">
-                                        Agree to terms and conditions
+                                       Check Properly and confirm form
                                     </label>
                                 </div>
                             </div>
                             <div class="col-12">
-                                <input type="submit" value="Submit" class="btn btn-success">
+                                <input type="submit" value="Submit" class="btn btn-info">
                             </div>
                         </form>
 

@@ -27,13 +27,13 @@ public class ClassRutineModel {
     private String  six_sub;
     private String  seven_sub;
 
-    private String  first_tea;
-    private String  second_tea;
-    private String  third_tea;
-    private String  forth_tea;
-    private String  fivth_tea;
-    private String  six_tea;
-    private String  seven_tea;
+//    private String  first_tea;
+//    private String  second_tea;
+//    private String  third_tea;
+//    private String  forth_tea;
+//    private String  fivth_tea;
+//    private String  six_tea;
+//    private String  seven_tea;
 
 
     private String cr_time1;
@@ -44,9 +44,15 @@ public class ClassRutineModel {
     private String cr_time6;
     private String cr_time7;
 
-    @ManyToOne
-    @JoinColumn(name="stu_id")
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name="Routine_id")
     private TeacherAddModel teacherAddModel;
 
-
+    private String  first_tea;
+    private String  second_tea;
+    private String  third_tea;
+    private String  forth_tea;
+    private String  fivth_tea;
+    private String  six_tea;
+    private String  seven_tea;
 }

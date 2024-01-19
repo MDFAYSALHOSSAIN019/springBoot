@@ -1,17 +1,25 @@
-<div th:insert="header.html">...</div>
-<div th:insert="sidebar.html">...</div>
+
+<div th:insert="~{header.html}">...</div>
+<div th:insert="~{sidebar.html}">...</div>
 
 <main id="main" class="main">
-
     <div class="pagetitle">
         <h1>Dashboard</h1>
         <nav>
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a th:href="index.html">Home</a></li>
-                <li class="breadcrumb-item active">Dashboard</li>
+                <li class="breadcrumb-item"><a th:href="@{/}">Class Rutine</a></li>
+                <li class="breadcrumb-item active">Class Rutine View</li>
             </ol>
         </nav>
     </div>
+    <div class="row">
+        <b> <a th:href="@{/student/view/Class-6}">Class-6</a>
+            &nbsp;&nbsp;<a th:href="@{/student/view/Class-7}">Class-7</a>
+            &nbsp;&nbsp;<a th:href="@{/student/view/Class-8}">Class-8</a>
+            &nbsp;<a th:href="@{/student/view/Class-9}">Class-9</a>
+            &nbsp; &nbsp;<a th:href="@{/student/view/Class-10}">Class-10</a></b><br>
+
+    </div><br>
 
     <section class="section">
         <div class="row">
@@ -20,17 +28,68 @@
                     <div class="card-body mt-3">
 
                         <!-- start my work-->
+<!--                        <div class="row">-->
+<!--                            <div class="card col-md-4 mb-4" th:each="rutview : ${ClassRutineAll}">-->
+<!--                                <div class="row g-0">-->
+<!--                                    <div class="col-md-4">-->
+<!--                                        <img src="/assets/img/card.jpg" class="img-fluid rounded-start" alt="..."><br><br>-->
+<!--                                        <a th:href="" ><b>More Detail</b></a>-->
 
-                        <h1 class="card">HELLO HOME</h1>
-                        <!--                        end my work-->
+<!--                                    </div>-->
+
+
+
+<!--                                    <div class="col-md-8">-->
+<!--                                        <div class="card-body">-->
+<!--                                            <h5 class="card-title" th:text="${stview.stfirstname}"></h5>-->
+<!--                                            <b> <span th:text="'Roll   : '+${stview.stRoll}"></span></b><br>-->
+<!--                                            <b> <span th:text="'Class   : '+${stview.stClass}"></span></b><br>-->
+
+<!--                                            <b><span th:text="'Session :' +${stview.session}"></span></b>-->
+<!--                                            <b><span th:text="'Gender : ' +${stview.stgender}"></span></b><br>-->
+
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+
+
+                                    <div class="row">
+                                        <div class="card col-md-4 mb-4" th:each="resview : ${ClassRutineAll}">
+                                            <div class="row g-0">
+                                                <div class="col-md-4">
+                                                    <img src="/assets/img/card.jpg" class="img-fluid rounded-start" alt="..."><br><br>
+<!--                                                    <a th:href="@{/student/stprofile/{id}(id=${stview.sid})}" ><b>More Detail</b></a>-->
+
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title" th:text="${resview.first_tea}"></h5>
+<!--                                                        <b> <span th:text="'teacher name   : '+${resview.teacherAddModel.t_name}"></span></b><br>-->
+                                                        <b><span th:if="${resview.teacherAddModel != null}" th:text="'Teacher Name: ' + ${resview.teacherAddModel.t_name}"></span></b><br>
+                                                        <b> <span th:text="'teacher name   : '+${resview.second_tea}"></span></b><br>
+
+                                                        <b><span th:text="'teacher name :' +${resview.second_tea}"></span></b>
+                                                        <b><span th:text="'teacher name : ' +${resview.second_tea}"></span></b><br>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+<!--&lt;!&ndash;                                -&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&ndash;&gt;-->
+
+
+
+                            </div>
+                        </div>
+                        <!-- end my work -->
                     </div>
-
                 </div>
-
             </div>
-
         </div>
-    </section>
-</main><!-- End #main -->
 
-<div th:insert="footer.html">...</div>
+    </section>
+</main>
+
+<div th:insert="~{footer.html}">...</div>
