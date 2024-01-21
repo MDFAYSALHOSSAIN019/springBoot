@@ -32,7 +32,7 @@
                             <div class="card col-md-4 mb-4" th:each="teview : ${teaList}">
                                 <div class="row g-0">
                                     <div class="col-md-4">
-                                        <img src="/assets/img/card.jpg" class="img-fluid rounded-start" alt="..."><br><br>
+                                        <img th:src="@{${'/teacher/display?tid=' + teview.tid}}" class="img-fluid rounded-start" alt="..."><br><br>
                                         <a th:href="@{/teacher/teprofile/{id}(id=${teview.tid})}" ><b>More Detail</b></a>
 
                                     </div>

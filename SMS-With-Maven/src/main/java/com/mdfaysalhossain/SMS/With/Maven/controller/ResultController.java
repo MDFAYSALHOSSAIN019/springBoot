@@ -46,9 +46,9 @@ public class ResultController {
 
     @PostMapping("/result/ressave")
     public String saveresult(@ModelAttribute ResultAddModel resultAddModel) {
-
-        int totalMarks = resultAddModel.gettotalmark();
-        resultAddModel.setR_totalmark(totalMarks);
+//
+//        int totalMarks = resultAddModel.gettotalmark();
+//        resultAddModel.setR_totalmark(totalMarks);
 
         resultService.saveresult(resultAddModel);
     return "redirect:/student/stviewall";

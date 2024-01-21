@@ -40,7 +40,7 @@ public class TeacherAddModel {
 
     private  String t_role;
 
-    private String t_pic;
+    private String tphoto;
 
     private String t_cv;
 

@@ -32,7 +32,7 @@
                         <h5 class="card-title">Student Add Form</h5>
 
                         <!-- Multi Columns Form -->
-                        <form class="row g-3" th:action="@{/student/stsave}" th:object="${studentform}" method="post" >
+                        <form class="row g-3" th:action="@{/student/stsave}" th:object="${studentform}" method="post"  enctype="multipart/form-data" >
                             <div class="col-md-3">
                                 <label  class="form-label">Session</label>
                                 <select  class="form-select" th:field="*{session}">
@@ -132,7 +132,10 @@
                             </div>
                             <div class="col-12">
                                 <label  class="form-label">Photo Attachment</label>
-                                <input type="file" class="form-control"  th:field="*{stPhoto}">
+                                <input type="file" class="form-control"  th:field="*{stPhoto}"  accept="image/*">
+
+<!--                                <img th:if="${studentform.image ne null}" th:src="@{/assets/imagess/student/{filename}(filename=${studentform.image})}" alt="Student Image" style="max-width: 100%;"><br>-->
+<!--                                <img id="imagePreview" src="#" alt="User Image" style="display: none; width: 100px;">-->
                             </div>
 
                            <div class="col-12">
@@ -159,5 +162,30 @@
         </div>
     </section>
 </main><!-- End #main -->
+
+
+
+<!--<script>-->
+<!--    function previewImage() {-->
+<!--        var input = document.querySelector('input[type="file"]');-->
+<!--        var preview = document.getElementById('imagePreview');-->
+
+<!--        if (input.files && input.files[0]) {-->
+<!--            var reader = new FileReader();-->
+
+<!--            reader.onload = function (e) {-->
+<!--                preview.src = e.target.result;-->
+<!--                preview.style.display = 'block';-->
+<!--            };-->
+
+<!--            reader.readAsDataURL(input.files[0]);-->
+<!--        } else {-->
+<!--            preview.src = '#';-->
+<!--            preview.style.display = 'none';-->
+<!--        }-->
+<!--    }-->
+<!--</script>-->
+
+
 
 <div th:insert="~{footer.html}">...</div>

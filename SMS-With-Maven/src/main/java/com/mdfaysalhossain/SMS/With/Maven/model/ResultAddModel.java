@@ -40,7 +40,7 @@ public class ResultAddModel {
 
     private double r_avg;
 
-    private int r_gpa;
+    private double r_gpa;
 
     private String r_grade;
 

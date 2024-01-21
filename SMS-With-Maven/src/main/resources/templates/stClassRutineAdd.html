@@ -26,8 +26,8 @@
                         <form class="row g-3" th:action="@{/rutine/rutsave}" th:object="${rutform}" method="post">
                             <div class="col-md-6">
                                 <label  class="form-label"><b>Class</b> </label>
-                                <select  class="form-select" th:field="*{cr_class}" >
-                                    <option value="" selected>Select Class</option>
+                                <select  class="form-select" th:field="*{crClass}" >
+<!--                                    <option value="" selected>Select Class</option>-->
                                     <option value="6">6</option>
                                     <option value="7">7</option>
                                     <option value="8">8</option>
@@ -39,7 +39,7 @@
 
                             <div class="col-md-6">
                                 <label  class="form-label"><b>Day</b> </label>
-                                <select  class="form-select" th:field="*{cr_day}" >
+                                <select  class="form-select" th:field="*{crDay}" >
                                     <option value="" selected>Select Day</option>
                                     <option value="SUNDAY">SUN_DAY</option>
                                     <option value="MONDAY">MON_DAY</option>
