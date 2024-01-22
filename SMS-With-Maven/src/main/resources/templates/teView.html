@@ -38,11 +38,11 @@
                                     </div>
                                     <div class="col-md-8">
                                         <div class="card-body">
-                                            <h5 class="card-title" th:text="${teview.t_name}"></h5>
-                                            <b> <span th:text="'designation   : '+${teview.t_designation}"></span></b><br>
-                                            <b> <span th:text="'Gender   : '+${teview.t_gender}"></span></b><br>
+                                            <h5 class="card-title" th:text="${teview.tname}"></h5>
+                                            <b> <span th:text="'designation   : '+${teview.getTdesignation}"></span></b><br>
+                                            <b> <span th:text="'Gender   : '+${teview.getTgender}"></span></b><br>
 
-                                            <b><span th:text="'Email :' +${teview.t_email}"></span></b>
+                                            <b><span th:text="'Email :' +${teview.getTemail}"></span></b>
                                            <br>
 
                                         </div>

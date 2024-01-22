@@ -1,14 +1,17 @@
 package com.mdfaysalhossain.SMS.With.Maven.controller;
 
 
-import com.mdfaysalhossain.SMS.With.Maven.model.StudentAddModel;
 import com.mdfaysalhossain.SMS.With.Maven.model.TeacherAddModel;
 import com.mdfaysalhossain.SMS.With.Maven.service.TeacherAddService;
+import jakarta.mail.MessagingException;
+import jakarta.mail.internet.MimeMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -32,6 +35,9 @@ public class TeacherAddController {
     TeacherAddService teacherAddService;
 
     long startTime;
+
+    @Autowired
+    JavaMailSender javaMailSender;
 
     public TeacherAddController(TeacherAddService teacherAddService) {
         this.teacherAddService = teacherAddService;
@@ -86,10 +92,56 @@ public class TeacherAddController {
     }
 
     @PostMapping("/teacher/tesave")
-    public String saveteacher(@ModelAttribute @Validated TeacherAddModel teacherAddModel, BindingResult result, @RequestParam("tphoto") MultipartFile image) throws IOException, SQLException {
+    public String saveteacher(@ModelAttribute @Validated TeacherAddModel teacherAddModel, BindingResult result, @RequestParam("tphoto") MultipartFile image) throws IOException, SQLException, MessagingException {
 
         long s=System.currentTimeMillis();
         startTime =s+20l;
+
+
+
+        MimeMessage mimeMessage = javaMailSender.createMimeMessage();
+        MimeMessageHelper message = new MimeMessageHelper(mimeMessage);
+        message.setTo(teacherAddModel.getTemail());
+
+
+//        Html Gmail massage
+
+        String html = "<!doctype html>\n" +
+                "<html lang=\"en\" xmlns=\"http://www.w3.org/1999/xhtml\"\n" +
+                "      xmlns:th=\"http://www.thymeleaf.org\">\n" +
+                "<head>\n" +
+                "    <meta charset=\"UTF-8\">\n" +
+                "    <meta name=\"viewport\"\n" +
+                "          content=\"width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0\">\n" +
+                "    <meta http-equiv=\"X-UA-Compatible\" content=\"ie=edge\">\n" +
+                "    <title>Welcome to Lalbag Model School and College</title>\n" +
+                "</head>\n" +
+                "<body>\n" +
+                "<div style=\"font-size: 18px; margin-bottom: 10px;\">Welcome <b>" + teacherAddModel.getTname() + "</b> to Lalbag Model School and College!</div>\n" +
+                "<div style=\"margin-bottom: 10px;\">Your joining date is: <b>" + teacherAddModel.getTjoiningDate()+ "</b></div>\n" +
+                "<div>Your Token is: <b>" + startTime + "</b></div>\n" +
+                "<div style=\"margin-top: 10px;\">Please click here to confirm your account: <b><a href=\"http://localhost:8080/public/confirm-account?token=" + startTime + "\">Confirm Account</a></b></div>\n" +
+                "<div>Your username is: <b>" + teacherAddModel.getTname() + "</b></div>\n" +
+                "<div>If you have any questions, please call <b>01864898071</b></div>\n" +
+                "</body>\n" +
+                "</html>\n";
+
+        message.setSubject("Confirm Registration");
+        message.setFrom("info@emranhss.com");
+        message.setText(html, true);
+        javaMailSender.send(mimeMessage);
+
+
+
+
+
+
+
+
+
+
+
+
 
         if (!image.isEmpty()) {
             byte[] bytes = image.getBytes();
@@ -119,8 +171,8 @@ public class TeacherAddController {
             Files.write(filePath, bytes);
         }
 
-        teacherAddModel.setT_password("1234");
-        teacherAddModel.setT_role("2");
+        teacherAddModel.setTpassword("1234");
+        teacherAddModel.setTrole("2");
         teacherAddService.saveteacher(teacherAddModel);
         return "redirect:/teacher/viewteacher";
     }

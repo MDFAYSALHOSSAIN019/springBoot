@@ -1,12 +1,11 @@
 package com.mdfaysalhossain.SMS.With.Maven.service;
 
 import com.mdfaysalhossain.SMS.With.Maven.model.ResultAddModel;
-import com.mdfaysalhossain.SMS.With.Maven.model.StudentAddModel;
 import com.mdfaysalhossain.SMS.With.Maven.repository.IResultRepo;
-import com.mdfaysalhossain.SMS.With.Maven.repository.IStudentAddRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -43,20 +42,23 @@ public class ResultService {
     }
 
 
-//    public List<ResultAddModel> findByClass(String r_Class) {
-//        return iResultRepo.findByR_Class(r_Class);
-//
-//    }
+
 
     ResultAddModel resultAddModel;
 
     public   void  totalmark(){
 
-        int totalmarks= resultAddModel.getR_bangla()+ resultAddModel.getR_english()+ resultAddModel.getR_math()+resultAddModel.getR_islam()+resultAddModel.getR_scince()+resultAddModel.getR_social();
+        int totalmarks= resultAddModel.getRbangla()+ resultAddModel.getRenglish()+ resultAddModel.getRmath()+resultAddModel.getRislam()+resultAddModel.getRscince()+resultAddModel.getRsocial();
 
     }
 
+//    public List<ResultAddModel> findByRClass(String rClass) {
+//        return iResultRepo.findByRclass(rClass);
+//    }
 
+    public List<ResultAddModel> findByRClass(String rClass) {
 
+        return iResultRepo.findByRclass(rClass);
+    }
 
 }

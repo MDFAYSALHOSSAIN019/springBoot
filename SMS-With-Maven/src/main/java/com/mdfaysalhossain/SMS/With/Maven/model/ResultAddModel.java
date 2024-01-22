@@ -14,49 +14,52 @@ public class ResultAddModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int r_id;
+    private int rid;
     @Column(nullable = false)
-    private String r_session;
+    private String rsession;
 
     @Column(nullable = false)
-    private String r_class;
-    @Column(nullable = false)
-    private  String r_roll;
+    private String rclass;
 
     @Column(nullable = false)
-    private int r_bangla;
+    private String rbatchid;
+
     @Column(nullable = false)
-    private int r_math;
+    private  String rroll;
+
     @Column(nullable = false)
-    private int r_english;
+    private int rbangla;
     @Column(nullable = false)
-    private int r_islam;
+    private int rmath;
     @Column(nullable = false)
-    private int r_scince;
+    private int renglish;
     @Column(nullable = false)
-    private  int r_social;
+    private int rislam;
+    @Column(nullable = false)
+    private int rscince;
+    @Column(nullable = false)
+    private  int rsocial;
 
-    private int r_totalmark;
+    private int rtotalmark;
 
-    private double r_avg;
+    private double ravg;
 
-    private double r_gpa;
+    private double rgpa;
 
-    private String r_grade;
+    private String rgrade;
 
-    private String r_passFail;
+    private String rpassFail;
 
-    private String r_examcatagory;
+    private String rexamcatagory;
 
 
     public int gettotalmark(){
 
-        return r_bangla+r_english+r_math+r_scince+r_social+r_islam;
+        return rbangla + renglish + rmath + rscince + rsocial + rislam;
     }
 
 
-
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "sid")
     private StudentAddModel studentAddModel;
 }
