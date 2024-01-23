@@ -33,7 +33,7 @@ public class StuAttendanceService {
 
 
     public List<StuAttendanceModel> getAttendanceByClass(String aclass) {
-        return stuAttendanceRepo.findByAClass(aclass);
+        return stuAttendanceRepo.findByAclass(aclass);
     }
 
 }

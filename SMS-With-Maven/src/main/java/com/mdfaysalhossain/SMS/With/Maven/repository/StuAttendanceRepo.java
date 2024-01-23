@@ -10,7 +10,7 @@ import java.util.List;
 public interface StuAttendanceRepo extends JpaRepository<StuAttendanceModel,Integer> {
 
     List<StuAttendanceModel> findByAid(int aid);
-//    List<StuAttendanceModel> findByA_Class(String a_Class);
-List<StuAttendanceModel> findByAClass(String aClass);
+
+List<StuAttendanceModel> findByAclass(String aClass);
 
 }
