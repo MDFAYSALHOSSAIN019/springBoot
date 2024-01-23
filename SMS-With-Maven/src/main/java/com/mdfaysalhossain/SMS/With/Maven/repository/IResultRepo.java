@@ -13,8 +13,6 @@ import java.util.List;
 @Repository
 public interface IResultRepo  extends JpaRepository<ResultAddModel,Integer> {
 
-//    @Query("select c from ResultAddModel ")
-//    List<ResultAddModel> findByRclass(String rclass);
 
     @Query("SELECT c FROM ResultAddModel c WHERE c.rclass = :rclass")
     List<ResultAddModel> findByRclass(@RequestParam("rclass") String rclass);

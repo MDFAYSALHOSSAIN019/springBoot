@@ -38,10 +38,22 @@
 
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="card-title">Attandence Form</h5>
+                                <h5 class="card-title">Student's Attandence Form</h5>
 
                                 <div>
 
+                                </div>
+
+                                <div class="col-md-3">
+                                    <label  class="form-label">Class</label>
+                                    <select  class="form-select" field="*{stClass}">
+                                        <option value="" selected>Choose Class</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                    </select>
                                 </div>
 
                                 <!-- Table with stripped rows -->
@@ -60,20 +72,27 @@
                                     <tr >
                                         <th scope="row">1</th>
                                         <td>Brandon Jacob</td>
-                                        <td>Designer</td>
+                                        <td>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+                                                <label class="form-check-label" for="gridRadios1">
+                                                   Present
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+                                                <label class="form-check-label" for="gridRadios2">
+                                                    Absent
+                                                </label>
+                                            </div>
+                                        </td>
                                         <td>2016-05-25</td>
                                         <td>2016-05-25</td>
                                         <td>
                                             <a href="" class="btn btn-danger">Delete</a>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td>Bridie Kessler</td>
-                                        <td>Developer</td>
-                                        <td>35</td>
-                                        <td>2014-12-05</td>
-                                    </tr>
+
 
                                     </tbody>
                                 </table>

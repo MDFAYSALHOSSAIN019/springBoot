@@ -11,6 +11,6 @@ public interface StuAttendanceRepo extends JpaRepository<StuAttendanceModel,Inte
 
     List<StuAttendanceModel> findByAid(int aid);
 //    List<StuAttendanceModel> findByA_Class(String a_Class);
-
+List<StuAttendanceModel> findByAClass(String aClass);
 
 }

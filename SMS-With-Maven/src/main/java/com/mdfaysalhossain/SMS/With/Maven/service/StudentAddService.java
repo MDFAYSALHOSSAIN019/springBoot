@@ -14,6 +14,11 @@ public class StudentAddService  {
 @Autowired
 IStudentAddRepo studentAddRepo;
 
+
+
+
+
+
     @Autowired
     public StudentAddService(IStudentAddRepo studentAddRepo) {
         this.studentAddRepo = studentAddRepo;
@@ -41,5 +46,10 @@ IStudentAddRepo studentAddRepo;
     public List<StudentAddModel> findByClass(String stClass) {
         return studentAddRepo.findByStClass(stClass);
 //      return stList;
+    }
+
+
+    public long getTotalStudentCount() {
+        return studentAddRepo.count();
     }
 }

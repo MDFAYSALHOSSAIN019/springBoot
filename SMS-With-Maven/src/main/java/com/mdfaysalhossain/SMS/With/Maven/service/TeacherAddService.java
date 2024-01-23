@@ -41,4 +41,9 @@ public Optional<TeacherAddModel> findbyId(int id){
         return teachersAddRepo.findById(id);
 }
 
+
+    public long getTotalTeacherCount() {
+        return teachersAddRepo.count();
+    }
+
 }

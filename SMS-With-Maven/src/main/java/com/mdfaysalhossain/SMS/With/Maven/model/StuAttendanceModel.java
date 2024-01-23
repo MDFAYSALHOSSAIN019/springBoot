@@ -19,14 +19,18 @@ public class StuAttendanceModel {
 //    @JoinColumn(name = "sid", referencedColumnName = "sid")
 //    private StudentAddModel student;
 
-    private  int a_class;
+    private  String aclass;
 
-    private String a_roll;
+    private String aroll;
 
-    private   String a_Dates;
+    private   String aDates;
 
 
-    private  String a_attendance;
+    private  String aattendance;
 
+
+    @ManyToOne
+    @JoinColumn(name = "sid", referencedColumnName = "sid")
+    private StudentAddModel student;
 
 }

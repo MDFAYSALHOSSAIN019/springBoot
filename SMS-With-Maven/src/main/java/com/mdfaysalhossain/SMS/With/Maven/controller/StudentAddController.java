@@ -1,6 +1,8 @@
 package com.mdfaysalhossain.SMS.With.Maven.controller;
 
+import com.mdfaysalhossain.SMS.With.Maven.model.ResultAddModel;
 import com.mdfaysalhossain.SMS.With.Maven.model.StudentAddModel;
+import com.mdfaysalhossain.SMS.With.Maven.repository.IStudentAddRepo;
 import com.mdfaysalhossain.SMS.With.Maven.service.StudentAddService;
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
@@ -31,6 +33,9 @@ public class StudentAddController {
 
     @Autowired
     public StudentAddService studentAddService;
+
+    @Autowired
+            public IStudentAddRepo iStudentAddRepo;
 
     long startTime;
 
@@ -203,12 +208,29 @@ public class StudentAddController {
     }
 
 
-    @GetMapping("/student/view/{stclass}")
-    public String viewStudentsByClass(@PathVariable String stclass, Model model) {
-        List<StudentAddModel> students = studentAddService.findByClass(stclass);
-        model.addAttribute("Allstudent", students);
-        return "redirect:/student/stviewall"; // Replace with the actual view name
+//    @GetMapping("/student/view/{stclass}")
+//    public String viewStudentsByClass(@PathVariable String stclass, Model model) {
+//        List<StudentAddModel> students = studentAddService.findByClass(stclass);
+//        model.addAttribute("Allstudent", students);
+//        return "redirect:/student/stviewall"; // Replace with the actual view name
+//    }
+
+
+
+
+
+
+
+
+    @GetMapping("/student/stviewbyclass/{stclass}")
+    public String getStudentByClass(@PathVariable(name = "stclass", required = false) String stClass, Model model) {
+        List<StudentAddModel> studltList = iStudentAddRepo.findByStClass(stClass);
+        model.addAttribute("studltList", studltList);
+        model.addAttribute("titel", "View result");
+        model.addAttribute("selectedClass", stClass);
+        return "stView";
     }
+
 
 
 
