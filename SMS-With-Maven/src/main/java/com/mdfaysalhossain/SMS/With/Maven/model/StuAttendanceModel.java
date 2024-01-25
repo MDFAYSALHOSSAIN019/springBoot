@@ -14,11 +14,6 @@ public class StuAttendanceModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int aid;
 
-
-//    @ManyToOne
-//    @JoinColumn(name = "sid", referencedColumnName = "sid")
-//    private StudentAddModel student;
-
     private  String aclass;
 
     private String aroll;

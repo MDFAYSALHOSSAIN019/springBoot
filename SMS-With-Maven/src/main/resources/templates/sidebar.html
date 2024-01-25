@@ -61,12 +61,12 @@
           </a>
         </li>
         <li>
-          <a href="tables-data.html">
+          <a th:href="@{/rutine/rutform}">
             <i class="bi bi-circle"></i><span>Exam Routine Create</span>
           </a>
         </li>
         <li>
-          <a href="tables-general.html">
+          <a th:href="@{/rutine/viewrutine}">
             <i class="bi bi-circle"></i><span>Exam Routine View</span>
           </a>
         </li>
@@ -97,12 +97,12 @@
       </a>
       <ul id="Syllabus-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
         <li>
-          <a href="charts-chartjs.html">
+          <a th:href="@{/syllabus/syllabusform}">
             <i class="bi bi-circle"></i><span>Syllabus Create</span>
           </a>
         </li>
         <li>
-          <a href="charts-apexcharts.html">
+          <a th:href="@{/syllabus/viewsyllabus}">
             <i class="bi bi-circle"></i><span>Syllabus View</span>
           </a>
         </li>
@@ -204,7 +204,7 @@
     </li>
 
     <li class="nav-item">
-      <a class="nav-link collapsed" th:href="@{/logout}">
+      <a class="nav-link collapsed" th:href="@{/admin}">
         <i class="bi bi-file-earmark"></i>
         <span>Logout</span>
       </a>

@@ -81,7 +81,7 @@
                                         <thead>
                                         <tr>
                                             <th scope="col">C. Roll</th>
-                                            <th scope="col">Name</th>
+<!--                                            <th scope="col">Name</th>-->
                                             <th scope="col">Ban</th>
                                             <th scope="col">Eng</th>
                                             <th scope="col">Math</th>
@@ -89,6 +89,7 @@
                                             <th scope="col">Social</th>
                                             <th scope="col">Islam</th>
                                             <th scope="col">Total</th>
+                                            <th scope="col">Avarage</th>
                                             <th scope="col">GPA</th>
                                             <th scope="col">Gread</th>
                                             <th scope="col">Result</th>
@@ -98,7 +99,7 @@
                                         <tbody>
                                         <tr th:each="result : ${resultList}" >
                                             <th scope="row" th:text="${result.rroll}">1</th>
-                                            <td th:text="${result.rclass}"></td>
+<!--                                            <td th:text="${result.rclass}"></td>-->
                                             <td th:text="${result.rbangla}"></td>
                                             <td th:text="${result.renglish}"></td>
                                             <td th:text="${result.rmath}"></td>
@@ -106,6 +107,7 @@
                                             <td th:text="${result.rsocial}"></td>
                                             <td th:text="${result.rislam}"></td>
                                             <td th:text="${result.rtotalmark}"></td>
+                                            <td th:text="${result.ravg}"></td>
                                             <td th:text="${result.rgpa}"></td>
                                             <td th:text="${result.rgrade}"></td>
                                             <td th:text="${result.rpassFail}"></td>

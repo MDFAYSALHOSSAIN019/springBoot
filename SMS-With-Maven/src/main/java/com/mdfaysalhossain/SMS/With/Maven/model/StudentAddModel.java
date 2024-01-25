@@ -50,4 +50,10 @@ public class StudentAddModel {
 
     private  String stPhoto;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_id")
+    private UserModel user;
+
     }
+
+

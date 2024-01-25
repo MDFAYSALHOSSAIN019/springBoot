@@ -225,7 +225,7 @@
                             </div>
                             <div class="col-md-4">
                                 <label class="form-label">Class</label>
-                                <select class="form-select" th:field="*{rclass}">
+                                <select id="classDropdown" class="form-select" th:field="*{rclass}">
                                     <option value="" selected>Choose Class</option>
                                     <option value="6">6</option>
                                     <option value="7">7</option>
@@ -236,7 +236,7 @@
                             </div>
                             <div class="col-md-4">
                                 <label class="form-label">Student Roll</label>
-                                <select class="form-select" th:field="*{rroll}">
+                                <select id="rollDropdown" class="form-select" th:field="*{rroll}">
                                     <option value="" selected>Choose Roll</option>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
@@ -333,137 +333,7 @@
 
 
 
-
-
-
-
-
-
-
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-
-<!--<script>-->
-<!--    // Your existing JavaScript code follows here-->
-<!--    $(document).ready(function () {-->
-<!--        // ...-->
-<!--    });-->
-
-<!--    // New function to handle the calculations when the button is clicked-->
-<!--    $("#calculateButton").on("click", function () {-->
-<!--        calculateResults();-->
-<!--    });-->
-
-<!--    // Function to calculate the results-->
-<!--    function calculateResults() {-->
-<!--        var bangla = parseInt($('#r_bangla').val()) || 0;-->
-<!--        var english = parseInt($('#r_english').val()) || 0;-->
-<!--        var math = parseInt($('#r_math').val()) || 0;-->
-<!--        var science = parseInt($('#r_scince').val()) || 0;-->
-<!--        var social = parseInt($('#r_social').val()) || 0;-->
-<!--        var islam = parseInt($('#r_islam').val()) || 0;-->
-
-
-
-<!--        if (bangla < 33 || english < 33 || math < 33 || science < 33 || social < 33 || islam < 33) {-->
-
-<!--            var totalMarks = calculateTotalMark(bangla, english, math, science, social, islam);-->
-<!--            var average = calculateAverageMark(bangla, english, math, science, social, islam);-->
-
-<!--            $('#r_totalmark').val(totalMarks);-->
-<!--            $('#r_avg').val(average.toFixed(2));-->
-
-
-
-
-<!--            $('#r_gpa').val(0.00);-->
-<!--            $('#r_gread').val('F');-->
-<!--            $('#r_summary').val('Fail');-->
-
-<!--            // Display total marks and average in a separate section-->
-<!--            $('#totalMarksDisplay').text('Total Marks: ' + 0);-->
-<!--            $('#averageDisplay').text('Average: ' + 0.00);-->
-<!--            return;-->
-<!--        }-->
-
-<!--        var totalMarks = calculateTotalMark(bangla, english, math, science, social, islam);-->
-<!--        var average = calculateAverageMark(bangla, english, math, science, social, islam);-->
-<!--        var gpa = calculateGPA(average);-->
-<!--        var grade = calculateGrade(gpa);-->
-<!--        var summary = (gpa >= 1.0) ? "Pass" : "Fail";-->
-
-
-<!--        // Set the calculated values to the respective input fields-->
-<!--        $('#r_totalmark').val(totalMarks);-->
-<!--        $('#r_avg').val(average.toFixed(2));-->
-<!--        $('#r_gpa').val(gpa.toFixed(2));-->
-<!--        $('#r_gread').val(grade);-->
-<!--        $('#r_summary').val(summary);-->
-<!--    }-->
-
-<!--    // Function to calculate total mark-->
-<!--    function calculateTotalMark(bangla, english, math, science, social, islam) {-->
-<!--        return bangla + english + math + science + social + islam;-->
-<!--    }-->
-
-<!--    // Function to calculate average mark-->
-<!--    function calculateAverageMark(bangla, english, math, science, social, islam) {-->
-<!--        var totalSubjects = 6; // Assuming 6 subjects-->
-<!--        return (bangla + english + math + science + social + islam) / totalSubjects;-->
-<!--    }-->
-
-<!--    // Function to calculate grade-->
-<!--    // function calculateGrade(gpa) {-->
-<!--    //     // Your grade calculation logic here-->
-<!--    //     // Example: return (gpa >= 4.0) ? 'A' : 'B';-->
-<!--    //     return (gpa >= 4.0) ? 'A' : 'B';-->
-<!--    // }-->
-
-<!--    function calculateGrade(gpa) {-->
-<!--        if (gpa >= 5.0) {-->
-<!--            return 'A+';-->
-<!--        } else if (gpa >= 4) {-->
-<!--            return 'A';-->
-<!--        } else if (gpa >= 3.5) {-->
-<!--            return 'A-';-->
-<!--        } else if (gpa >= 3) {-->
-<!--            return 'B';-->
-<!--        } else if (gpa >= 2) {-->
-<!--            return 'C';-->
-<!--        } else if (gpa >= 1) {-->
-<!--            return 'D';-->
-<!--        } else {-->
-<!--            return 'F';-->
-<!--        }-->
-<!--    }-->
-
-<!--    // Function to calculate GPA based on average-->
-<!--    // function calculateGPA(average) {-->
-<!--    //     // Your GPA calculation logic here-->
-<!--    //     // Example: return average / 10;-->
-<!--    //     return average / 10;-->
-<!--    // }-->
-<!--    function calculateGPA(average) {-->
-<!--        if (average >= 80) {-->
-<!--            return 5.0;-->
-<!--        } else if (average >= 70) {-->
-<!--            return 4.0;-->
-<!--        } else if (average >= 60) {-->
-<!--            return 3.5;-->
-<!--        } else if (average >= 50) {-->
-<!--            return 3.0;-->
-<!--        } else if (average >= 40) {-->
-<!--            return 2.0;-->
-<!--        } else if (average >= 33) {-->
-<!--            return 1.0;-->
-<!--        } else {-->
-<!--            return 0.0;-->
-<!--        }-->
-<!--    }-->
-
-<!--</script>-->
-
-
-
 
 <script>
     $(document).ready(function () {

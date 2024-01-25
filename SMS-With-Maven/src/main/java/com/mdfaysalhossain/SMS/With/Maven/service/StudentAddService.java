@@ -52,4 +52,13 @@ IStudentAddRepo studentAddRepo;
     public long getTotalStudentCount() {
         return studentAddRepo.count();
     }
+
+    public List<String> getRollsByClass(String classId) {
+
+        return studentAddRepo.findDistinctStRollByStClass(classId);
+    }
+
+
+
+
 }

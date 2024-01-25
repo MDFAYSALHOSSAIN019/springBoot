@@ -72,4 +72,12 @@ public class StuAttendanceController {
     }
 
 
+    @GetMapping("/student/attenviewss")
+
+    private String views(){
+
+        return "stAttendanceView";
+    }
+
+
 }

@@ -25,6 +25,13 @@ public class controller {
 //        this.teacherAddService = teacherAddService;
 //    }
 
+
+    @GetMapping("admin")
+    public String loginpage(){
+
+        return "loginPage";
+    }
+
     @GetMapping("")
     public String home(Model model){
 

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Controller
 public class ResultController {
@@ -47,6 +48,9 @@ public class ResultController {
         // Log the received rclass
         System.out.println("Received rclass: " + rclass);
 
+
+
+
         List<ResultAddModel> resultList = iResultRepo.findByRclass(rclass);
 
         // Log the resultList to see if it contains data
@@ -58,7 +62,6 @@ public class ResultController {
         model.addAttribute("selectedClass", rclass);
         return "stResultView";
     }
-
 
 
     @GetMapping("/result/resform")

@@ -2,7 +2,9 @@ package com.mdfaysalhossain.SMS.With.Maven.controller;
 
 import com.mdfaysalhossain.SMS.With.Maven.model.ResultAddModel;
 import com.mdfaysalhossain.SMS.With.Maven.model.StudentAddModel;
+import com.mdfaysalhossain.SMS.With.Maven.model.UserModel;
 import com.mdfaysalhossain.SMS.With.Maven.repository.IStudentAddRepo;
+import com.mdfaysalhossain.SMS.With.Maven.repository.IUserRepo;
 import com.mdfaysalhossain.SMS.With.Maven.service.StudentAddService;
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
@@ -45,6 +47,15 @@ public class StudentAddController {
     public StudentAddController(StudentAddService studentAddService) {
         this.studentAddService = studentAddService;
     }
+
+    @Autowired
+    IUserRepo iUserRepo;
+
+
+
+
+
+
 
     @GetMapping("/student/stviewall")
     public String getallstudent(Model m) {
@@ -135,15 +146,6 @@ public class StudentAddController {
 
 
 
-
-
-
-
-
-
-
-
-
         if (!image.isEmpty()) {
             byte[] bytes = image.getBytes();
             String originalFilename = image.getOriginalFilename();
@@ -173,30 +175,34 @@ public class StudentAddController {
         }
 
 
+
+
+
+
+
+
+
+        UserModel userModel = new UserModel();
+        userModel.setName(studentAddModel.getStfirstname() + " " + studentAddModel.getStlastname());
+        userModel.setEmail(studentAddModel.getStemail());
+        userModel.setPassword("1234");
+        userModel.setStrole("3");
+        iUserRepo.save(userModel);
+
+
+        studentAddModel.setUser(userModel);
+
+
         studentAddModel.setStpassword("1234");
         studentAddModel.setStrole("3");
         studentAddService.saveStudent(studentAddModel);
+
+
         return "redirect:/student/stviewall";
     }
 
 
 
-//    @GetMapping("/student/stprofile")
-//    public String studentProfile(@PathVariable("id") int studentId, Model model) {
-//        // Retrieve the student by ID from the service or repository
-//        Optional<StudentAddModel> studentprofile = studentAddService.findById(studentId);
-//
-//        // Check if the student is found
-//        if (studentprofile != null) {
-//            model.addAttribute("studentProfile", studentprofile);
-//            model.addAttribute("title", "View Student Profile");
-//            return "stProfile";
-//        } else {
-//            // Handle case where student with the given ID is not found
-//            // You might want to redirect to an error page or handle it differently
-//            return "studentNotFound";
-//        }
-//    }
 
     @RequestMapping("/student/stprofile/{id}")
     public String profilestudent(@PathVariable("id") int id, Model m){
@@ -215,8 +221,25 @@ public class StudentAddController {
 //        return "redirect:/student/stviewall"; // Replace with the actual view name
 //    }
 
+    @GetMapping("/student/getMaxRoll/{classId}")
+    @ResponseBody
+    public Integer getMaxRollByClass(@PathVariable String classId) {
+        // Implement logic to get the max student roll for the given classId
+        Integer maxRoll = iStudentAddRepo.findMaxRollByClass(classId);
+
+        // If maxRoll is null (no rolls found), return 1; otherwise, return maxRoll + 1
+        return (maxRoll != null) ? maxRoll + 1 : 1;
+    }
 
 
+
+
+
+        @GetMapping("/student/getRolls")
+        public List<String> getRolls(@RequestParam String classId) {
+
+            return studentAddService.getRollsByClass(classId);
+        }
 
 
 

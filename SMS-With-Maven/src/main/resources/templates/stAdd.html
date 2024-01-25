@@ -56,7 +56,7 @@
                             </div>
                             <div class="col-md-3">
                                 <label  class="form-label">Class</label>
-                                <select  class="form-select" th:field="*{stClass}">
+                                <select  class="form-select" th:field="*{stClass}" onchange="updateStudentRoll()">
                                     <option value="" selected>Choose Class</option>
                                     <option value="6">6</option>
                                     <option value="7">7</option>
@@ -67,16 +67,16 @@
                             </div>
                             <div class="col-md-3">
                                 <label  class="form-label">Student Roll</label>
-                                <select  class="form-select" th:field="*{stRoll}">
+                                <select  class="form-select" th:field="*{stRoll}" id="stRoll">
                                     <option value="" selected>Choose Roll</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                    <option value="6">6</option>
-                                    <option value="7">7</option>
-                                    <option value="8">8</option>
+<!--                                    <option value="1">1</option>-->
+<!--                                    <option value="2">2</option>-->
+<!--                                    <option value="3">3</option>-->
+<!--                                    <option value="4">4</option>-->
+<!--                                    <option value="5">5</option>-->
+<!--                                    <option value="6">6</option>-->
+<!--                                    <option value="7">7</option>-->
+<!--                                    <option value="8">8</option>-->
                                 </select>
                             </div>
 
@@ -157,6 +157,69 @@
     </section>
 </main><!-- End #main -->
 
+
+
+<script th:inline="javascript">
+    function updateStudentRoll() {
+        var selectedClass = document.getElementById("stClass").value;
+        var url = '/student/getMaxRoll/' + selectedClass;
+
+        // Make an asynchronous call to the server to get the max roll
+        fetch(url)
+            .then(response => response.text()) // Change here to response.text()
+            .then(data => populateRollOptions(parseInt(data))); // Parse the response as an integer
+    }
+
+    function populateRollOptions(maxRoll) {
+        var selectRoll = document.getElementById("stRoll");
+        selectRoll.innerHTML = '<option value="" selected>Choose Roll</option>';
+
+        for (var i = 1; i <= maxRoll ; i++) {
+            var option = document.createElement("option");
+            option.value = i;
+            option.text = i;
+            selectRoll.appendChild(option);
+        }
+    }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<script th:inline="javascript">-->
+<!--    function updateStudentRoll() {-->
+<!--        var selectedClass = document.getElementById("stClass").value;-->
+<!--        var url = '/student/getMaxRoll/' + selectedClass;-->
+
+<!--        // Make an asynchronous call to the server to get the max roll-->
+<!--        fetch(url)-->
+<!--            .then(response => response.json())-->
+<!--            .then(data => populateRollOptions(data));-->
+<!--    }-->
+
+<!--    function populateRollOptions(maxRoll) {-->
+<!--        var selectRoll = document.getElementById("stRoll");-->
+<!--        selectRoll.innerHTML = '<option value="" selected>Choose Roll</option>';-->
+
+<!--        for (var i = 1; i <= maxRoll + 1; i++) {-->
+<!--            var option = document.createElement("option");-->
+<!--            option.value = i;-->
+<!--            option.text = i;-->
+<!--            selectRoll.appendChild(option);-->
+<!--        }-->
+<!--    }-->
+<!--</script>-->
 
 
 <!--<script>-->
