@@ -35,8 +35,13 @@ public class ClassRutineController {
     @GetMapping("/rutine/viewrutine")
     public String getallclassrut(Model m) {
 
+<<<<<<< HEAD
 //        List<TeacherAddModel> teacherList=teacherAddService.getAllteacher();
 //        m.addAttribute("teacherList",teacherList);
+=======
+        List<TeacherAddModel> teacherList=teacherAddService.getAllteacher();
+        m.addAttribute("teacherList",teacherList);
+>>>>>>> 0906a4eff5597bba66ed8fe9420b105173125ff0
 
         List<ClassRutineModel> rutList = classRutineRepo.findAllByCrClass(6);
         m.addAttribute("classRutineAll", rutList);

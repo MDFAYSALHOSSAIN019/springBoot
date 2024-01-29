@@ -3,6 +3,7 @@ package com.mdfaysalhossain.SMS.With.Maven.controller;
 
 import com.mdfaysalhossain.SMS.With.Maven.model.ResultAddModel;
 import com.mdfaysalhossain.SMS.With.Maven.model.StudentAddModel;
+import com.mdfaysalhossain.SMS.With.Maven.repository.IResultRepo;
 import com.mdfaysalhossain.SMS.With.Maven.service.ResultService;
 import com.mdfaysalhossain.SMS.With.Maven.service.StudentAddService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Controller
 public class ResultController {
@@ -24,18 +26,42 @@ public class ResultController {
         this.resultService = resultService;
     }
 
-
-
+@Autowired
+    public IResultRepo iResultRepo;
 
 
     @GetMapping("/result/resviewall")
     public String getallresult(Model m) {
         List<ResultAddModel> resList = resultService.getAllResult();
-        m.addAttribute("resultList", resList);
+        m.addAttribute("resultLists", resList);
         m.addAttribute("titel", "View result");
         return "stResultView";
     }
 
+
+
+
+
+
+    @GetMapping("/result/resviewbyclass/{rclass}")
+    public String getResultByClass(@PathVariable(name = "rclass", required = false) String rclass, Model model) {
+        // Log the received rclass
+        System.out.println("Received rclass: " + rclass);
+
+
+
+
+        List<ResultAddModel> resultList = iResultRepo.findByRclass(rclass);
+
+        // Log the resultList to see if it contains data
+        System.out.println("ResultList size: " + resultList.size());
+
+        model.addAttribute("resultList", resultList);
+        model.addAttribute("titel", "View result");
+
+        model.addAttribute("selectedClass", rclass);
+        return "stResultView";
+    }
 
 
     @GetMapping("/result/resform")
@@ -46,12 +72,15 @@ public class ResultController {
 
     @PostMapping("/result/ressave")
     public String saveresult(@ModelAttribute ResultAddModel resultAddModel) {
+<<<<<<< HEAD
 //
 //        int totalMarks = resultAddModel.gettotalmark();
 //        resultAddModel.setR_totalmark(totalMarks);
 
+=======
+>>>>>>> 0906a4eff5597bba66ed8fe9420b105173125ff0
         resultService.saveresult(resultAddModel);
-    return "redirect:/student/stviewall";
+    return "redirect:/result/resviewall";
     }
 
 //    @GetMapping("/student/stprofile")
@@ -89,6 +118,11 @@ public class ResultController {
 //    }
 
 
+    @RequestMapping("/result/delete/{id}")
+    public String deleteresult(@PathVariable("id") int id) {
+        iResultRepo.deleteById(id);
+        return "redirect:/result/resviewall";
+    }
 
 
 }

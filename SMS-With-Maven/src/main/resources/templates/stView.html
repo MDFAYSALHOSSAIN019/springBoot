@@ -66,14 +66,8 @@
             </ol>
         </nav>
     </div>
-    <div class="row">
-      <b> <a th:href="@{/student/view/Class-6}">Class-6</a>
-          &nbsp;&nbsp;<a th:href="@{/student/view/Class-7}">Class-7</a>
-          &nbsp;&nbsp;<a th:href="@{/student/view/Class-8}">Class-8</a>
-          &nbsp;<a th:href="@{/student/view/Class-9}">Class-9</a>
-          &nbsp; &nbsp;<a th:href="@{/student/view/Class-10}">Class-10</a></b><br>
 
-    </div><br>
+
 
     <section class="section">
         <div class="row">
@@ -83,22 +77,77 @@
 
                         <!-- start my work-->
                         <div class="row">
-                            <div class="card col-md-4 mb-4" th:each="stview : ${Allstudent}">
+
+
+                            <label class="col-form-label col-sm-2 pt-0"><b>Select Class</b></label>
+
+
+
+                            <div class="col-sm-10">
+                                <div class="form-check form-check-inline">
+                                    <a th:class="${selectedClass == '6' ? 'active' : ''}" th:href="@{/student/stviewbyclass/{stClass}(stClass=6)}" th:text="Class-6" style="font-weight: bold;"><b>classs-6</b></a>
+                                </div>
+
+                                <div class="form-check form-check-inline">
+                                    <a th:class="${selectedClass == '7' ? 'active' : ''}" th:href="@{/student/stviewbyclass/{stClass}(stClass=7)}" th:text="Class-7" style="font-weight: bold;"><b>classs-7</b></a>
+                                </div>
+
+                                <div class="form-check form-check-inline">
+                                    <a th:class="${selectedClass == '8' ? 'active' : ''}" th:href="@{/student/stviewbyclass/{stClass}(stClass=8)}" th:text="Class-8" style="font-weight: bold;"><b>classs-8</b></a>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <a th:class="${selectedClass == '9' ? 'active' : ''}" th:href="@{/student/stviewbyclass/{stClass}(stClass=9)}" th:text="Class-9" style="font-weight: bold;"><b>classs-9</b></a>
+                                </div>
+
+                                <div class="form-check form-check-inline">
+                                    <a th:class="${selectedClass == '10' ? 'active' : ''}" th:href="@{/student/stviewbyclass/{stClass}(stClass=10)}" th:text="Class-10" style="font-weight: bold;"><b>classs-10</b></a>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <section class="section">
+        <div class="row">
+            <div class="col-md-10 offset-1">
+                <div class="card">
+                    <div class="card-body mt-3">
+                        <h5 class="card-title " >Student View <b style="margin-left: 60%">Class : <b><span th:text="${selectedClass}" style="font-size: 18px; font-weight: bold; color: #000;" class="large-text"></span></b></b></h5>
+                        <!-- start my work-->
+                        <div class="row">
+                            <div class="card col-md-4 mb-4" th:each="student : ${studltList}">
                                 <div class="row g-0">
                                     <div class="col-md-4">
+<<<<<<< HEAD
                                         <img th:src="@{${'/student/display?sid=' + stview.sid}}" class="img-fluid rounded-start" alt="..."><br><br>
                                         <a th:href="@{/student/stprofile/{id}(id=${stview.sid})}" ><b>More Detail</b></a>
+=======
+                                        <img th:src="@{${'/student/display?sid=' + student.sid}}" class="img-fluid rounded-start" alt="..."><br><br>
+                                        <a th:href="@{/student/stprofile/{id}(id=${student.sid})}" ><b>More Detail</b></a>
+
+>>>>>>> 0906a4eff5597bba66ed8fe9420b105173125ff0
 
 
                                     </div>
                                     <div class="col-md-8">
                                         <div class="card-body">
-                                            <h5 class="card-title" th:text="${stview.stfirstname}"></h5>
-                                           <b> <span th:text="'Roll   : '+${stview.stRoll}"></span></b><br>
-                                           <b> <span th:text="'Class   : '+${stview.stClass}"></span></b><br>
+                                            <h5 class="card-title" th:text="${student.stfirstname}"></h5>
+                                           <b> <span th:text="'Roll   : '+${student.stRoll}"></span></b><br>
+                                           <b> <span th:text="'Class   : '+${student.stClass}"></span></b><br>
 
-                                            <b><span th:text="'Session :' +${stview.session}"></span></b>
-                                            <b><span th:text="'Gender : ' +${stview.stgender}"></span></b><br>
+                                            <b><span th:text="'Session :' +${student.session}"></span></b>
+                                            <b><span th:text="'Gender : ' +${student.stgender}"></span></b><br>
 
                                         </div>
                                     </div>

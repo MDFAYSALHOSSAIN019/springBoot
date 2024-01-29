@@ -14,6 +14,11 @@ public class StudentAddService  {
 @Autowired
 IStudentAddRepo studentAddRepo;
 
+
+
+
+
+
     @Autowired
     public StudentAddService(IStudentAddRepo studentAddRepo) {
         this.studentAddRepo = studentAddRepo;
@@ -42,4 +47,18 @@ IStudentAddRepo studentAddRepo;
         return studentAddRepo.findByStClass(stClass);
 //      return stList;
     }
+
+
+    public long getTotalStudentCount() {
+        return studentAddRepo.count();
+    }
+
+    public List<String> getRollsByClass(String classId) {
+
+        return studentAddRepo.findDistinctStRollByStClass(classId);
+    }
+
+
+
+
 }

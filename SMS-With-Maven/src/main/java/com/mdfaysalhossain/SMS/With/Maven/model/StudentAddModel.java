@@ -49,5 +49,14 @@ public class StudentAddModel {
     private String stphone;
 
     private  String stPhoto;
+<<<<<<< HEAD
+=======
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_id")
+    private UserModel user;
+>>>>>>> 0906a4eff5597bba66ed8fe9420b105173125ff0
 
     }
+
+

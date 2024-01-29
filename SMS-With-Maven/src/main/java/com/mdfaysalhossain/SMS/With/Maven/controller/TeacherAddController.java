@@ -2,6 +2,8 @@ package com.mdfaysalhossain.SMS.With.Maven.controller;
 
 
 import com.mdfaysalhossain.SMS.With.Maven.model.TeacherAddModel;
+import com.mdfaysalhossain.SMS.With.Maven.model.UserModel;
+import com.mdfaysalhossain.SMS.With.Maven.repository.IUserRepo;
 import com.mdfaysalhossain.SMS.With.Maven.service.TeacherAddService;
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
@@ -34,6 +36,12 @@ public class TeacherAddController {
     @Autowired
     TeacherAddService teacherAddService;
 
+<<<<<<< HEAD
+=======
+    @Autowired
+    IUserRepo iUserRepo;
+
+>>>>>>> 0906a4eff5597bba66ed8fe9420b105173125ff0
     long startTime;
 
     @Autowired
@@ -132,6 +140,7 @@ public class TeacherAddController {
         javaMailSender.send(mimeMessage);
 
 
+<<<<<<< HEAD
 
 
 
@@ -143,6 +152,8 @@ public class TeacherAddController {
 
 
 
+=======
+>>>>>>> 0906a4eff5597bba66ed8fe9420b105173125ff0
         if (!image.isEmpty()) {
             byte[] bytes = image.getBytes();
             String originalFilename = image.getOriginalFilename();
@@ -171,6 +182,18 @@ public class TeacherAddController {
             Files.write(filePath, bytes);
         }
 
+<<<<<<< HEAD
+=======
+        UserModel userModel = new UserModel();
+        userModel.setName(teacherAddModel.getTname());
+        userModel.setEmail(teacherAddModel.getTemail());
+        userModel.setPassword("1234");
+        userModel.setStrole("2");
+        iUserRepo.save(userModel);
+
+
+
+>>>>>>> 0906a4eff5597bba66ed8fe9420b105173125ff0
         teacherAddModel.setTpassword("1234");
         teacherAddModel.setTrole("2");
         teacherAddService.saveteacher(teacherAddModel);

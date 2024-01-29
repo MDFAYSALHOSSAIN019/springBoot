@@ -5,6 +5,7 @@ import com.mdfaysalhossain.SMS.With.Maven.repository.IResultRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -41,10 +42,7 @@ public class ResultService {
     }
 
 
-//    public List<ResultAddModel> findByClass(String r_Class) {
-//        return iResultRepo.findByR_Class(r_Class);
-//
-//    }
+
 
     ResultAddModel resultAddModel;
 
@@ -54,9 +52,19 @@ public class ResultService {
 
     }
 
+<<<<<<< HEAD
 //    public List<ResultAddModel> findByClass(String rClass) {
 //        return iResultRepo.findBy(rClass);
 //    }
+=======
+//    public List<ResultAddModel> findByRClass(String rClass) {
+//        return iResultRepo.findByRclass(rClass);
+//    }
 
+    public List<ResultAddModel> findByRClass(String rClass) {
+>>>>>>> 0906a4eff5597bba66ed8fe9420b105173125ff0
+
+        return iResultRepo.findByRclass(rClass);
+    }
 
 }

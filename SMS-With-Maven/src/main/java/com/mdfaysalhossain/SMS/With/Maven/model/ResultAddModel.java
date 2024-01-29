@@ -59,8 +59,19 @@ public class ResultAddModel {
     }
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0906a4eff5597bba66ed8fe9420b105173125ff0
     @OneToOne
     @JoinColumn(name = "sid")
     private StudentAddModel studentAddModel;
+
+//    @OneToOne
+//    @JoinColumn(name = "stRoll", referencedColumnName = "stRoll")
+//    private StudentAddModel student;
+
+//    @ManyToOne
+//    @JoinColumn(name = "st_roll", referencedColumnName = "st_roll") // Specify the name of the foreign key column
+//    private StudentAddModel student;
 }

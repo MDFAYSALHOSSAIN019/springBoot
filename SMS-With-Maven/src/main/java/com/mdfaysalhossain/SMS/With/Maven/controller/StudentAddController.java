@@ -1,6 +1,10 @@
 package com.mdfaysalhossain.SMS.With.Maven.controller;
 
+import com.mdfaysalhossain.SMS.With.Maven.model.ResultAddModel;
 import com.mdfaysalhossain.SMS.With.Maven.model.StudentAddModel;
+import com.mdfaysalhossain.SMS.With.Maven.model.UserModel;
+import com.mdfaysalhossain.SMS.With.Maven.repository.IStudentAddRepo;
+import com.mdfaysalhossain.SMS.With.Maven.repository.IUserRepo;
 import com.mdfaysalhossain.SMS.With.Maven.service.StudentAddService;
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
@@ -32,14 +36,31 @@ public class StudentAddController {
     @Autowired
     public StudentAddService studentAddService;
 
+<<<<<<< HEAD
     long startTime;
 
+=======
+    @Autowired
+            public IStudentAddRepo iStudentAddRepo;
+
+    long startTime;
+
+>>>>>>> 0906a4eff5597bba66ed8fe9420b105173125ff0
     @Autowired
     JavaMailSender javaMailSender;
 
     public StudentAddController(StudentAddService studentAddService) {
         this.studentAddService = studentAddService;
     }
+
+    @Autowired
+    IUserRepo iUserRepo;
+
+
+
+
+
+
 
     @GetMapping("/student/stviewall")
     public String getallstudent(Model m) {
@@ -130,6 +151,7 @@ public class StudentAddController {
 
 
 
+<<<<<<< HEAD
 
 
 
@@ -139,6 +161,8 @@ public class StudentAddController {
 
 
 
+=======
+>>>>>>> 0906a4eff5597bba66ed8fe9420b105173125ff0
         if (!image.isEmpty()) {
             byte[] bytes = image.getBytes();
             String originalFilename = image.getOriginalFilename();
@@ -166,16 +190,40 @@ public class StudentAddController {
             Path filePath = uploadPath.resolve(newFileName);
             Files.write(filePath, bytes);
         }
+<<<<<<< HEAD
+=======
+
+
+
+
+
+
+
+
+
+        UserModel userModel = new UserModel();
+        userModel.setName(studentAddModel.getStfirstname() + " " + studentAddModel.getStlastname());
+        userModel.setEmail(studentAddModel.getStemail());
+        userModel.setPassword("1234");
+        userModel.setStrole("3");
+        iUserRepo.save(userModel);
+
+
+        studentAddModel.setUser(userModel);
+>>>>>>> 0906a4eff5597bba66ed8fe9420b105173125ff0
 
 
         studentAddModel.setStpassword("1234");
         studentAddModel.setStrole("3");
         studentAddService.saveStudent(studentAddModel);
+
+
         return "redirect:/student/stviewall";
     }
 
 
 
+<<<<<<< HEAD
 //    @GetMapping("/student/stprofile")
 //    public String studentProfile(@PathVariable("id") int studentId, Model model) {
 //        // Retrieve the student by ID from the service or repository
@@ -192,6 +240,8 @@ public class StudentAddController {
 //            return "studentNotFound";
 //        }
 //    }
+=======
+>>>>>>> 0906a4eff5597bba66ed8fe9420b105173125ff0
 
     @RequestMapping("/student/stprofile/{id}")
     public String profilestudent(@PathVariable("id") int id, Model m){
@@ -203,11 +253,60 @@ public class StudentAddController {
     }
 
 
-    @GetMapping("/student/view/{stclass}")
-    public String viewStudentsByClass(@PathVariable String stclass, Model model) {
-        List<StudentAddModel> students = studentAddService.findByClass(stclass);
-        model.addAttribute("Allstudent", students);
-        return "redirect:/student/stviewall"; // Replace with the actual view name
+//    @GetMapping("/student/view/{stclass}")
+//    public String viewStudentsByClass(@PathVariable String stclass, Model model) {
+//        List<StudentAddModel> students = studentAddService.findByClass(stclass);
+//        model.addAttribute("Allstudent", students);
+//        return "redirect:/student/stviewall"; // Replace with the actual view name
+//    }
+
+    @GetMapping("/student/getMaxRoll/{classId}")
+    @ResponseBody
+    public Integer getMaxRollByClass(@PathVariable String classId) {
+        // Implement logic to get the max student roll for the given classId
+        Integer maxRoll = iStudentAddRepo.findMaxRollByClass(classId);
+
+        // If maxRoll is null (no rolls found), return 1; otherwise, return maxRoll + 1
+        return (maxRoll != null) ? maxRoll + 1 : 1;
+    }
+
+
+
+
+
+        @GetMapping("/student/getRolls")
+        public List<String> getRolls(@RequestParam String classId) {
+
+            return studentAddService.getRollsByClass(classId);
+        }
+
+
+
+
+
+    @GetMapping("/student/stviewbyclass/{stclass}")
+    public String getStudentByClass(@PathVariable(name = "stclass", required = false) String stClass, Model model) {
+        List<StudentAddModel> studltList = iStudentAddRepo.findByStClass(stClass);
+        model.addAttribute("studltList", studltList);
+        model.addAttribute("titel", "View result");
+        model.addAttribute("selectedClass", stClass);
+        return "stView";
+    }
+
+
+
+
+    @RequestMapping("/student/delete/{id}")
+    public String deleteStudent(@PathVariable("id") int id) {
+        studentAddService.daletestudent(id);
+        return "redirect:/student/stviewall";
+    }
+
+    @RequestMapping("/student/editstudent/{id}")
+    public String editstudent(@PathVariable("id") int id, Model m) {
+        Optional<StudentAddModel> student = studentAddService.findById(id);
+        m.addAttribute("studentedit", student);
+        return "edituser";
     }
 
 

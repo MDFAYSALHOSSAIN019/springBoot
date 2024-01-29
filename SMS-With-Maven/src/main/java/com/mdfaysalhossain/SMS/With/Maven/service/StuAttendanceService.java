@@ -32,6 +32,12 @@ public class StuAttendanceService {
     }
 
 
+<<<<<<< HEAD
 
+=======
+    public List<StuAttendanceModel> getAttendanceByClass(String aclass) {
+        return stuAttendanceRepo.findByAclass(aclass);
+    }
+>>>>>>> 0906a4eff5597bba66ed8fe9420b105173125ff0
 
 }

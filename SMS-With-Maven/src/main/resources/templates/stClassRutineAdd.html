@@ -49,9 +49,9 @@
                                 </select>
                             </div>
                             <div class="col-md-4">
-                                <label  class="form-label text-success" ><b>1st Period</b> </label>
-                                <select  class="form-select" >
-                                    <option value="" selected th:field="*{first_sub}">Selete Subject</option>
+                                <label  class="form-label text-success" ><b>1st Period</b></label>
+                                <select  class="form-select" th:field="*{first_sub}">
+                                    <option value="" selected>Selete Subject</option>
                                     <option value="Bangla">Bangla</option>
                                     <option value="Math">Math</option>
                                     <option value="English">English</option>
@@ -61,10 +61,18 @@
                                 </select>
                             </div>
                             <div class="col-md-4">
+<<<<<<< HEAD
                                 <label class="form-label">&nbsp;</label>
                                 <select class="form-select" th:field="*{first_tea}" >
                                     <option selected  value="" th:each="r:${teaList}" th:text="${r.tname}"
                                             th:value="${r.tname}">Select Teacher</option>
+=======
+                                <label  class="form-label">&nbsp;</label>
+                                <select  class="form-select" th:field="*{first_tea}">
+                                    <option  th:each="tea:${teaList}" th:text="${tea.tname}" th:value="${tea.tname}">Selete Teacher</option>
+                             <option value="Robiul Islam">Robiul Islam</option>-->
+
+>>>>>>> 0906a4eff5597bba66ed8fe9420b105173125ff0
 
                                 </select>
                             </div>
@@ -87,14 +95,25 @@
                                     <option value="Scince">Scince</option>
                                 </select>
                             </div>
+
+
                             <div class="col-md-4">
+<<<<<<< HEAD
                                 <label class="form-label">&nbsp;</label>
                                 <select class="form-select" th:field="*{second_tea}" >
                                     <option selected  th:each="r:${teaList}" th:text="${r.getTname}"
                                             th:value="${r.tid}">Select Teacher</option>
+=======
+                                <label  class="form-label">&nbsp;</label>
+                                <select  class="form-select" th:field="*{second_tea}">
+                                    <option  th:each="tea:${teaList}" th:text="${tea.tname}" th:value="${tea.tname}">Selete Teacher</option>
+                                    <option value="Robiul Islam">Robiul Islam</option>-->
+
+>>>>>>> 0906a4eff5597bba66ed8fe9420b105173125ff0
 
                                 </select>
                             </div>
+
                             <div class="col-md-4">
                                 <label  class="form-label">&nbsp;</label>
                                 <input type="text" class="form-control" th:field="*{cr_time2}" placeholder="Class Time Input" >
@@ -114,13 +133,23 @@
                                 </select>
                             </div>
                             <div class="col-md-4">
+<<<<<<< HEAD
                                 <label class="form-label">&nbsp;</label>
                                 <select class="form-select" th:field="*{third_tea}">
                                     <option selected   th:each="r:${teaList}" th:text="${r.getTname}"
                                             th:value="${r.tid}">Select Teacher</option>
+=======
+                                <label  class="form-label">&nbsp;</label>
+                                <select  class="form-select" th:field="*{third_tea}">
+                                    <option  th:each="tea:${teaList}" th:text="${tea.tname}" th:value="${tea.tname}">Selete Teacher</option>
+                                    <option value="Robiul Islam">Robiul Islam</option>-->
+
+>>>>>>> 0906a4eff5597bba66ed8fe9420b105173125ff0
 
                                 </select>
                             </div>
+
+
                             <div class="col-md-4">
                                 <label  class="form-label">&nbsp;</label>
                                 <input type="text" class="form-control" th:field="*{cr_time3}" placeholder="Class Time Input" >
@@ -139,14 +168,27 @@
                                     <option value="Scince">Scince</option>
                                 </select>
                             </div>
+
                             <div class="col-md-4">
+<<<<<<< HEAD
                                 <label class="form-label">&nbsp;</label>
                                 <select class="form-select" th:field="*{forth_tea}">
                                     <option selected   th:each="r:${teaList}" th:text="${r.getTname}"
                                             th:value="${r.tid}">Select Teacher</option>
+=======
+                                <label  class="form-label">&nbsp;</label>
+                                <select  class="form-select" th:field="*{forth_tea}">
+                                    <option  th:each="tea:${teaList}" th:text="${tea.tname}" th:value="${tea.tname}">Selete Teacher</option>
+                                    <option value="Robiul Islam">Robiul Islam</option>-->
+
+>>>>>>> 0906a4eff5597bba66ed8fe9420b105173125ff0
 
                                 </select>
                             </div>
+
+
+
+
                             <div class="col-md-4">
                                 <label  class="form-label">&nbsp;</label>
                                 <input type="text" class="form-control" th:field="*{cr_time4}"  placeholder="Class Time Input" >
@@ -167,13 +209,23 @@
                                 </select>
                             </div>
                             <div class="col-md-4">
+<<<<<<< HEAD
                                 <label class="form-label">&nbsp;</label>
                                 <select class="form-select" th:field="*{fivth_tea}" >
                                     <option selected   th:each="r:${teaList}" th:text="${r.getTname}"
                                             th:value="${r.tid}">Select Teacher</option>
+=======
+                                <label  class="form-label">&nbsp;</label>
+                                <select  class="form-select" th:field="*{fivth_tea}">
+                                    <option  th:each="tea:${teaList}" th:text="${tea.tname}" th:value="${tea.tname}">Selete Teacher</option>
+                                    <option value="Robiul Islam">Robiul Islam</option>-->
+
+>>>>>>> 0906a4eff5597bba66ed8fe9420b105173125ff0
 
                                 </select>
                             </div>
+
+
                             <div class="col-md-4">
                                 <label  class="form-label">&nbsp;</label>
                                 <input type="text" class="form-control"  th:field="*{cr_time5}" placeholder="Class Time Input">
@@ -192,14 +244,26 @@
                                     <option value="Scince">Scince</option>
                                 </select>
                             </div>
+
+
                             <div class="col-md-4">
+<<<<<<< HEAD
                                 <label class="form-label">&nbsp;</label>
                                 <select class="form-select" th:field="*{six_tea}">
                                     <option selected   th:each="r:${teaList}" th:text="${r.getTname}"
                                             th:value="${r.tid}">Select Teacher</option>
+=======
+                                <label  class="form-label">&nbsp;</label>
+                                <select  class="form-select" th:field="*{six_tea}">
+                                    <option  th:each="tea:${teaList}" th:text="${tea.tname}" th:value="${tea.tname}">Selete Teacher</option>
+                                    <option value="Robiul Islam">Robiul Islam</option>-->
+
+>>>>>>> 0906a4eff5597bba66ed8fe9420b105173125ff0
 
                                 </select>
                             </div>
+
+
                             <div class="col-md-4">
                                 <label  class="form-label">&nbsp;</label>
                                 <input type="text" class="form-control" th:field="*{cr_time6}" placeholder="Class Time Input" >
@@ -218,14 +282,26 @@
                                     <option value="Scince">Scince</option>
                                 </select>
                             </div>
+
+
                             <div class="col-md-4">
+<<<<<<< HEAD
                                 <label class="form-label">&nbsp;</label>
                                 <select class="form-select" th:field="*{seven_tea}">
                                     <option selected   th:each="r:${teaList}" th:text="${r.getTname}"
                                             th:value="${r.tid}">Select Teacher</option>
+=======
+                                <label  class="form-label">&nbsp;</label>
+                                <select  class="form-select" th:field="*{seven_tea}">
+                                    <option  th:each="tea:${teaList}" th:text="${tea.tname}" th:value="${tea.tname}">Selete Teacher</option>
+                                    <option value="Robiul Islam">Robiul Islam</option>-->
+
+>>>>>>> 0906a4eff5597bba66ed8fe9420b105173125ff0
 
                                 </select>
                             </div>
+
+
                             <div class="col-md-4">
                                 <label  class="form-label">&nbsp;</label>
                                 <input type="text" class="form-control"  th:field="*{cr_time7}" placeholder="Class Time Input">
