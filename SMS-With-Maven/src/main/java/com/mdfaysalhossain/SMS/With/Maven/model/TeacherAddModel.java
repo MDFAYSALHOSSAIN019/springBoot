@@ -16,35 +16,35 @@ public class TeacherAddModel {
     private int tid;
 
     @Column(nullable = false)
-    private String t_name;
+    private String tname;
 
     @Column(unique = true, nullable = false)
-    private String t_email;
+    private String temail;
 
     @Column(nullable = false)
-    private String t_password;
+    private String tpassword;
 
-    private String t_phone;
+    private String tphone;
 
-    private String t_fathersname;
+    private String tfathersname;
 
-    private String t_mothersname;
+    private String tmothersname;
 
-    private String t_gender;
+    private String tgender;
 
-    private String t_dob;
+    private String tdob;
 
-    private String t_joiningDate;
+    private String tjoiningDate;
 
-    private String t_salary;
+    private String tsalary;
 
-    private  String t_role;
+    private  String trole;
 
-    private String t_pic;
+    private String tphoto;
 
-    private String t_cv;
+    private String tcv;
 
-    private String t_designation;
+    private String tdesignation;
 
 
 

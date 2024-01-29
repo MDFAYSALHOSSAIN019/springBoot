@@ -11,6 +11,7 @@ import java.util.List;
 @Repository
 public interface IResultRepo  extends JpaRepository<ResultAddModel,Integer> {
 
-//    List<ResultAddModel> findByR_Class(String r_Class);
+    List<ResultAddModel> findByRclass(String rclass);
+
 
 }

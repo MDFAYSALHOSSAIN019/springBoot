@@ -48,6 +48,6 @@ public class StudentAddModel {
 
     private String stphone;
 
-    private  Long stPhoto;
+    private  String stPhoto;
 
     }

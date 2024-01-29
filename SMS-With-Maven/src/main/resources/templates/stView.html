@@ -86,8 +86,9 @@
                             <div class="card col-md-4 mb-4" th:each="stview : ${Allstudent}">
                                 <div class="row g-0">
                                     <div class="col-md-4">
-                                        <img src="/assets/img/card.jpg" class="img-fluid rounded-start" alt="..."><br><br>
+                                        <img th:src="@{${'/student/display?sid=' + stview.sid}}" class="img-fluid rounded-start" alt="..."><br><br>
                                         <a th:href="@{/student/stprofile/{id}(id=${stview.sid})}" ><b>More Detail</b></a>
+
 
                                     </div>
                                     <div class="col-md-8">

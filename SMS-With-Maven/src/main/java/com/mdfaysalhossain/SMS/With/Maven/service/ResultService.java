@@ -1,9 +1,7 @@
 package com.mdfaysalhossain.SMS.With.Maven.service;
 
 import com.mdfaysalhossain.SMS.With.Maven.model.ResultAddModel;
-import com.mdfaysalhossain.SMS.With.Maven.model.StudentAddModel;
 import com.mdfaysalhossain.SMS.With.Maven.repository.IResultRepo;
-import com.mdfaysalhossain.SMS.With.Maven.repository.IStudentAddRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -52,11 +50,13 @@ public class ResultService {
 
     public   void  totalmark(){
 
-        int totalmarks= resultAddModel.getR_bangla()+ resultAddModel.getR_english()+ resultAddModel.getR_math()+resultAddModel.getR_islam()+resultAddModel.getR_scince()+resultAddModel.getR_social();
+        int totalmarks= resultAddModel.getRbangla()+ resultAddModel.getRenglish()+ resultAddModel.getRmath()+resultAddModel.getRislam()+resultAddModel.getRscince()+resultAddModel.getRsocial();
 
     }
 
-
+//    public List<ResultAddModel> findByClass(String rClass) {
+//        return iResultRepo.findBy(rClass);
+//    }
 
 
 }

@@ -23,6 +23,9 @@ public class TeacherAddService {
     }
 
 
+
+
+
     public void  saveteacher(TeacherAddModel te){
 
         teachersAddRepo.save(te);

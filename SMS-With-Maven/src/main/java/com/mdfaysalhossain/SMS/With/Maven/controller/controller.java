@@ -13,7 +13,7 @@ public class controller {
 
     @GetMapping("/stAttendance")
     public String stAttendance(){
-        return "stAttendance";
+        return "stAttendanceAdd";
     }
 
 

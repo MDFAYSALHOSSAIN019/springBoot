@@ -2,8 +2,10 @@ package com.mdfaysalhossain.SMS.With.Maven.controller;
 
 import com.mdfaysalhossain.SMS.With.Maven.model.ClassRutineModel;
 import com.mdfaysalhossain.SMS.With.Maven.model.TeacherAddModel;
+import com.mdfaysalhossain.SMS.With.Maven.repository.IClassRutineRepo;
 import com.mdfaysalhossain.SMS.With.Maven.repository.ITeachersAddRepo;
 import com.mdfaysalhossain.SMS.With.Maven.service.ClassRutineService;
+import com.mdfaysalhossain.SMS.With.Maven.service.TeacherAddService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,10 +17,12 @@ import java.util.List;
 public class ClassRutineController {
     @Autowired
     ITeachersAddRepo teachersAddRepo;
+
     @Autowired
-    public ClassRutineController(ITeachersAddRepo teachersAddRepo) {
-        this.teachersAddRepo = teachersAddRepo;
-    }
+    IClassRutineRepo classRutineRepo;
+
+    @Autowired
+    TeacherAddService teacherAddService;
 
     @Autowired
     ClassRutineService classRutineService;
@@ -30,30 +34,15 @@ public class ClassRutineController {
 
     @GetMapping("/rutine/viewrutine")
     public String getallclassrut(Model m) {
-        List<ClassRutineModel> rutList = classRutineService.getAllrutine();
 
-        for (ClassRutineModel classRutine : rutList) {
-            TeacherAddModel teacherAddModel = classRutine.getTeacherAddModel();
-            if (teacherAddModel != null) {
-                System.out.println("Teacher Name: " + teacherAddModel.getT_name());
-            } else {
-                System.out.println("Teacher Add Model is null");
-            }
-        }
+//        List<TeacherAddModel> teacherList=teacherAddService.getAllteacher();
+//        m.addAttribute("teacherList",teacherList);
 
-
-
-
-
-     m.addAttribute("ClassRutineAll", rutList);
+        List<ClassRutineModel> rutList = classRutineRepo.findAllByCrClass(6);
+        m.addAttribute("classRutineAll", rutList);
         m.addAttribute("titel", "View Class Rutine");
-
-        List<TeacherAddModel> teaList = teachersAddRepo.findAll();
-        m.addAttribute("teacher",new TeacherAddModel());
-        m.addAttribute("teaList",teaList);
-
-
         return "stClassRutineView";
+
     }
 
 
@@ -61,8 +50,6 @@ public class ClassRutineController {
     public String saveform(Model m) {
 
         List<TeacherAddModel> teaList = teachersAddRepo.findAll();
-
-        m.addAttribute("teacher",new TeacherAddModel());
         m.addAttribute("teaList",teaList);
 
 
@@ -71,7 +58,7 @@ public class ClassRutineController {
     }
 
     @PostMapping("/rutine/rutsave")
-    public String saverutine(@ModelAttribute ClassRutineModel classRutineModel) {
+    public String saverutine(@ModelAttribute("rutform") ClassRutineModel classRutineModel) {
 //        classRutineModel.setT_password("1234");
 //        classRutineModel.setT_role("2");
         classRutineService.saverutine(classRutineModel);

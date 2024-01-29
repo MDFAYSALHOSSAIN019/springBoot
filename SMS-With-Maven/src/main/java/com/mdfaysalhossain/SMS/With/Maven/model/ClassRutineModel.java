@@ -1,23 +1,22 @@
 package com.mdfaysalhossain.SMS.With.Maven.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-
+@EqualsAndHashCode
+@ToString
 public class ClassRutineModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int cr_id;
+    private int crid;
 
-    private String cr_class;
-    private String cr_day;
+    private int crClass;
+    private String crDay;
 
     private String  first_sub;
     private String  second_sub;
@@ -27,13 +26,13 @@ public class ClassRutineModel {
     private String  six_sub;
     private String  seven_sub;
 
-//    private String  first_tea;
-//    private String  second_tea;
-//    private String  third_tea;
-//    private String  forth_tea;
-//    private String  fivth_tea;
-//    private String  six_tea;
-//    private String  seven_tea;
+    private String  first_tea;
+    private String  second_tea;
+    private String  third_tea;
+    private String  forth_tea;
+    private String  fivth_tea;
+    private String  six_tea;
+    private String  seven_tea;
 
 
     private String cr_time1;
@@ -48,11 +47,5 @@ public class ClassRutineModel {
     @JoinColumn(name="Routine_id")
     private TeacherAddModel teacherAddModel;
 
-    private String  first_tea;
-    private String  second_tea;
-    private String  third_tea;
-    private String  forth_tea;
-    private String  fivth_tea;
-    private String  six_tea;
-    private String  seven_tea;
+
 }
