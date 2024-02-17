@@ -9,6 +9,8 @@ import lombok.*;
 @Data
 @EqualsAndHashCode
 @ToString
+@Table(name = "classRutineTable")
+
 public class ClassRutineModel {
 
     @Id
@@ -47,5 +49,9 @@ public class ClassRutineModel {
     @JoinColumn(name="Routine_id")
     private TeacherAddModel teacherAddModel;
 
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name="Class_id")
+    private ClassModel classModel;
 
 }

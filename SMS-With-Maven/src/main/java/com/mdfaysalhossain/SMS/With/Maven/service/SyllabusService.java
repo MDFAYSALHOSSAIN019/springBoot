@@ -22,7 +22,7 @@ public class SyllabusService {
         return ISyllabusRepository.findAll();
     }
 
-    public Optional<SyllabusModel> getSyllabusById(int id) {
+    public Optional<SyllabusModel> getSyllabusById(long id) {
         return ISyllabusRepository.findById(id);
     }
 
@@ -30,7 +30,7 @@ public class SyllabusService {
         return ISyllabusRepository.save(syllabusModel);
     }
 
-    public void deleteSyllabusById(int id) {
+    public void deleteSyllabusById(long id) {
         ISyllabusRepository.deleteById(id);
     }
 }

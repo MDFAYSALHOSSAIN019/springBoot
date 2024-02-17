@@ -12,11 +12,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.List;
 
 @Repository
-public interface IResultRepo  extends JpaRepository<ResultAddModel,Integer> {
+public interface IResultRepo  extends JpaRepository<ResultAddModel,Long> {
 
-<<<<<<< HEAD
-    List<ResultAddModel> findByRclass(String rclass);
-=======
 
     @Query("SELECT c FROM ResultAddModel c WHERE c.rclass = :rclass")
     List<ResultAddModel> findByRclass(@RequestParam("rclass") String rclass);
@@ -24,7 +21,6 @@ public interface IResultRepo  extends JpaRepository<ResultAddModel,Integer> {
 
 
 
->>>>>>> 0906a4eff5597bba66ed8fe9420b105173125ff0
 
 
 }

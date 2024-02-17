@@ -9,12 +9,12 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-
+@Table(name = "resultSheetTable")
 public class ResultAddModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int rid;
+    private long rid;
     @Column(nullable = false)
     private String rsession;
 
@@ -53,19 +53,12 @@ public class ResultAddModel {
     private String rexamcatagory;
 
 
-    public int gettotalmark(){
-
-        return rbangla + renglish + rmath + rscince + rsocial + rislam;
-    }
 
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 0906a4eff5597bba66ed8fe9420b105173125ff0
-    @OneToOne
-    @JoinColumn(name = "sid")
-    private StudentAddModel studentAddModel;
+//    @ManyToOne
+//    @JoinColumn(name = "sid")
+//    private StudentAddModel studentAddModel;
 
 //    @OneToOne
 //    @JoinColumn(name = "stRoll", referencedColumnName = "stRoll")
@@ -74,4 +67,6 @@ public class ResultAddModel {
 //    @ManyToOne
 //    @JoinColumn(name = "st_roll", referencedColumnName = "st_roll") // Specify the name of the foreign key column
 //    private StudentAddModel student;
+
+
 }

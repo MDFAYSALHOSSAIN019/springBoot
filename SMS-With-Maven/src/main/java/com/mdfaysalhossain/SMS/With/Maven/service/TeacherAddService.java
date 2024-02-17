@@ -17,33 +17,19 @@ public class TeacherAddService {
     public TeacherAddService(ITeachersAddRepo teachersAddRepo) {
         this.teachersAddRepo = teachersAddRepo;
     }
-    public List<TeacherAddModel> getAllteacher(){
-
+    public List<TeacherAddModel> getAllteacher() {
         return teachersAddRepo.findAll();
     }
-
-
-
-
-
-    public void  saveteacher(TeacherAddModel te){
-
+    public void saveteacher(TeacherAddModel te) {
         teachersAddRepo.save(te);
     }
-
-public void deletebyid(int id){
-
+    public void deletebyid(int id) {
         teachersAddRepo.deleteById(id);
-}
-
-public Optional<TeacherAddModel> findbyId(int id){
-
+    }
+    public Optional<TeacherAddModel> findbyId(int id) {
         return teachersAddRepo.findById(id);
-}
-
-
+    }
     public long getTotalTeacherCount() {
         return teachersAddRepo.count();
     }
-
 }

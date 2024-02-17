@@ -1,0 +1,93 @@
+
+
+
+<main id="main" class="main">
+
+    <div class="pagetitle">
+        <h1>Dashboard</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a th:href="index.html">Syllabus</a></li>
+                <li class="breadcrumb-item active">Create Syllabus</li>
+            </ol>
+        </nav>
+    </div>
+
+    <section class="section">
+        <div class="row">
+            <div class="col-md-10 offset-1">
+                <div class="card">
+
+                    <div class="card-title text-center">  Create Syllabus</div>
+                    <div class="card-body mt-3">
+
+                        <!-- start my work-->
+                        <form class="row g-3" [formGroup]="formValue"  >
+                            <div class="col-md-6">
+                                <label  class="form-label"><b>Class</b></label>
+                                <select  class="form-select" formControlName="sclass" >
+                                    <option value="" selected>Choose Class</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label  class="form-label"><b>Exam Catagory </b></label>
+                                <select  class="form-select" formControlName="examCatagory"  >
+                                    <option value="" selected>Choose Catagory</option>
+                                    <option value="1">1st Mid</option>
+                                    <option value="2">Mid Term</option>
+                                    <option value="3">2nd Mid</option>
+                                    <option value="4">Final</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label"><b>Subject</b></label>
+                                <select class="form-select" formControlName="subjectModel">
+                                    <option value="" disabled selected>Select Subject</option> 
+                                    <option *ngFor="let subj of subjects" [value]="subj.subName">{{subj.subName}}</option>
+                                </select>
+                            </div>
+                            
+
+
+                            <div class="col-md-6">
+                                <label  class="form-label"><b>Page Number</b></label>
+                                <input type="text" class="form-control" formControlName="pageNo"   placeholder="PAGE NUMBER">
+                            </div>
+
+                            <div class="col-md-12">
+                                <label  class="form-label"><b>Description</b></label>
+                                <input type="text" class="form-control" formControlName="discription" placeholder="Description">
+                            </div>
+
+                            
+                            <div class="col-12">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
+                                    <label class="form-check-label" for="invalidCheck2">
+                                        Check Properly and confirm form
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <input type="submit" value="Submit" [disabled]="formValue.invalid" (click)="saveSyllabus()" class="btn btn-info" >
+                            </div>
+                        </form>
+
+     
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+</main><!-- End #main -->
+
+

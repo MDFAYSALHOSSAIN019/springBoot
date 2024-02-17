@@ -5,10 +5,14 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Entity(name = "TeacherInfoTable")
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
+@Table(name = "teacherTable")
+
 public class TeacherAddModel {
 
     @Id
@@ -47,6 +51,8 @@ public class TeacherAddModel {
     private String tdesignation;
 
 
-
+    @OneToMany
+    @MapKeyColumn(name = "pid")
+    private List<PaymentModel> paymentModel;
 
 }

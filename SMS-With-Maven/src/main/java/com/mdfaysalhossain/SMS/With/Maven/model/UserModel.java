@@ -9,20 +9,44 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
+@Table(name = "allUserTable")
+
 public class UserModel {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    private Long uid;
+//
+//    @Column(nullable = false)
+//    private String name;
+//
+//    @Column(unique = true, nullable = false)
+//    private String email;
+//
+//    @Column(nullable = false)
+//    private String password;
+//
+//    private String strole;
 
-    @Column(nullable = false)
-    private String name;
 
-    @Column(unique = true, nullable = false)
-    private String email;
+        @Id
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
 
-    @Column(nullable = false)
-    private String password;
+        private int uid;
 
-    private String strole;
+        @Column(name = "email") // Specify the column name here
+        private String email;
+
+        @Column(name = "name") // Specify the column name here
+        private String name;
+
+        @Column(name = "password") // Specify the column name here
+        private String password;
+
+        @Column(name = "strole") // Specify the column name here
+        private String strole;
+
+        // Other fields and methods
+
+
 }

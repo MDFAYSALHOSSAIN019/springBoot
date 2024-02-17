@@ -14,11 +14,6 @@ public class StudentAddService  {
 @Autowired
 IStudentAddRepo studentAddRepo;
 
-
-
-
-
-
     @Autowired
     public StudentAddService(IStudentAddRepo studentAddRepo) {
         this.studentAddRepo = studentAddRepo;
@@ -34,18 +29,18 @@ IStudentAddRepo studentAddRepo;
        studentAddRepo.save(st);
     }
 
-    public void daletestudent(int id){
+    public void daletestudent(long id){
         studentAddRepo.deleteById(id);
     }
 
-    public Optional<StudentAddModel> findById(int id){
+    public Optional<StudentAddModel> findById(long id){
         return studentAddRepo.findById(id);
     }
 
 
     public List<StudentAddModel> findByClass(String stClass) {
         return studentAddRepo.findByStClass(stClass);
-//      return stList;
+
     }
 
 

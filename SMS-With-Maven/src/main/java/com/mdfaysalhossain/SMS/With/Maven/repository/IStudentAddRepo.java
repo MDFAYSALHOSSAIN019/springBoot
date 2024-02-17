@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.List;
 
 @Repository
-public interface IStudentAddRepo extends JpaRepository<StudentAddModel,Integer> {
+public interface IStudentAddRepo extends JpaRepository<StudentAddModel,Long> {
 
     @Query("SELECT c FROM StudentAddModel c WHERE c.stClass = :stClass")
     List<StudentAddModel> findByStClass(@RequestParam("stClass") String stClass);
@@ -23,4 +23,5 @@ public interface IStudentAddRepo extends JpaRepository<StudentAddModel,Integer> 
 
     List<String> findDistinctStRollByStClass(String stClass);
 
+    StudentAddModel findBySid(long sid);
 }

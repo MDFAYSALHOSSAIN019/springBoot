@@ -1,0 +1,56 @@
+
+<main id="main" class="main">
+    <div class="pagetitle">
+        <h1>Dashboard</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a >Teacher</a></li>
+                <li class="breadcrumb-item active">View Teacher</li>
+            </ol>
+        </nav>
+    </div>
+<!--    <div class="row">-->
+<!--        <b> <a th:href="@{/student/view/Class-6}">Class-6</a>-->
+<!--            &nbsp;&nbsp;<a th:href="@{/student/view/Class-7}">Class-7</a>-->
+<!--            &nbsp;&nbsp;<a th:href="@{/student/view/Class-8}">Class-8</a>-->
+<!--            &nbsp;<a th:href="@{/student/view/Class-9}">Class-9</a>-->
+<!--            &nbsp; &nbsp;<a th:href="@{/student/view/Class-10}">Class-10</a></b><br>-->
+
+<!--    </div><br>-->
+<br>
+    <section class="section">
+        <div class="row">
+            <div class="col-md-10 offset-1">
+                <div class="card" >
+                    <div class="card-body mt-3">
+
+                        <!-- start my work-->
+                        <div class="row">
+                            <div class="card col-md-6 mb-6" *ngFor="let teacherData of teacherData">
+                                <div class="row g-0">
+                                    <div class="col-md-4">
+                                        <img  class="img-fluid rounded-start" alt="..."><br><br>
+                                        <a [routerLink]="['/teprofile', teacherData.tid]" ><b>More Detail</b></a>
+
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <h5 class="card-title" >{{teacherData.tname}}</h5>
+                                            <b> <span >designation   :{{teacherData.tdesignation}}</span></b><br>
+                                            <b> <span >Gender :{{teacherData.tgender}}</span></b><br>
+
+                                            <b><span >Email :{{teacherData.temail}}</span></b>
+                                           <br>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end my work -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>

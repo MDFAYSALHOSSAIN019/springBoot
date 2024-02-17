@@ -1,0 +1,99 @@
+<main id="main" class="main">
+    <div class="pagetitle">
+        <h1>Dashboard</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="">Student</a></li>
+                <li class="breadcrumb-item active">View Student</li>
+            </ol>
+        </nav>
+    </div>
+
+
+
+    <section class="section">
+        <div class="row">
+            <div class="col-md-10 offset-1">
+                <div class="card">
+                    <div class="card-body mt-3">
+
+                        <!-- start my work-->
+                        <div class="row">
+
+
+                            <label class="col-form-label col-sm-2 pt-0"><b>Select Class</b></label>
+
+
+
+                            <div class="col-sm-10">
+                                <div class="form-check form-check-inline">
+                                    <a href="#" (click)="loadStudentsByClass('6')" style="font-weight: bold;">Class-6</a>
+                                                                       
+                                </div>
+
+                                <div class="form-check form-check-inline">
+                                    <a href="#" (click)="loadStudentsByClass('7')" style="font-weight: bold;">Class-7</a>
+                                </div>
+
+                                <div class="form-check form-check-inline">
+                                    <a href="#" (click)="loadStudentsByClass('8')" style="font-weight: bold;">Class-8</a>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <a href="#" (click)="loadStudentsByClass('9')" style="font-weight: bold;">Class-9</a>
+                                </div>
+
+                                <div class="form-check form-check-inline">
+                                    <a href="#" (click)="loadStudentsByClass('10')" style="font-weight: bold;">Class-10</a>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <section class="section">
+       <div class="row">
+            <div class="col-md-10 offset-1">
+                <div class="card">
+                    <div class="card-body mt-3">
+                        <h5 class="card-title " >Student View <b style="margin-left: 60%">Class : <b><span  style="font-size: 18px; font-weight: bold; color: #000;" class="large-text">{{ selectedClass }}</span></b></b></h5>
+                     
+                        <div class="row">
+                            <div class="card col-md-4 mb-4" *ngFor="let row of studentData">
+                              <div class="row g-0">
+                                <div class="col-md-4">
+                                  <img src="" class="img-fluid rounded-start" alt="..."><br><br>
+                                  <a [routerLink]="['/stprofile', row.sid]"><b>More Detail</b></a>
+                                </div>
+                                <div class="col-md-8">
+                                  <div class="card-body">
+                                    <h5 class="card-title">{{ row.stfirstname }}</h5>
+                                    <b><span>Rol: {{ row.stRoll }}</span></b><br>
+                                    <b><span>Class: {{ row.stClass }}</span></b><br>
+                                    <b><span>Session: {{ row.session }}</span></b><br>
+                                    <b><span>Gender: {{ row.stgender }}</span></b><br>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        
+    </section>
+</main>

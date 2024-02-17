@@ -11,17 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class
-
-
-
-
-
-
-
-
-
-ClassRutineService {
+public class ClassRutineService {
 
     @Autowired
     IClassRutineRepo iClassRutineRepo;

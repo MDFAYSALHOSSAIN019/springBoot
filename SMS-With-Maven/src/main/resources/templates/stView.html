@@ -129,14 +129,8 @@
                             <div class="card col-md-4 mb-4" th:each="student : ${studltList}">
                                 <div class="row g-0">
                                     <div class="col-md-4">
-<<<<<<< HEAD
-                                        <img th:src="@{${'/student/display?sid=' + stview.sid}}" class="img-fluid rounded-start" alt="..."><br><br>
-                                        <a th:href="@{/student/stprofile/{id}(id=${stview.sid})}" ><b>More Detail</b></a>
-=======
                                         <img th:src="@{${'/student/display?sid=' + student.sid}}" class="img-fluid rounded-start" alt="..."><br><br>
                                         <a th:href="@{/student/stprofile/{id}(id=${student.sid})}" ><b>More Detail</b></a>
-
->>>>>>> 0906a4eff5597bba66ed8fe9420b105173125ff0
 
 
                                     </div>
